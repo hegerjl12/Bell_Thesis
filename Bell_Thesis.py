@@ -8,7 +8,7 @@ st.set_page_config(
 )
 
 
-st.title('Selina's Thesis')
+st.title("Selina's Thesis")
 
 image = Image.open('404A4573.jpg')
 
