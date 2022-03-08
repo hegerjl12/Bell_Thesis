@@ -12,4 +12,4 @@ st.title("Selina's Thesis")
 
 image = Image.open("404A4573.jpg")
 
-st.image(image, width=10)
+st.image(image, width=100)
