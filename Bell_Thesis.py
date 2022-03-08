@@ -14,8 +14,8 @@ image = Image.open('404A4573.jpg')
 
 st.image(image, width=1024)
 
-image1_input1 = st.text_input('Enter 5 words you feel:', '', 1)
-image1_input2 = st.text_input('','', 2)
-image1_input3 = st.text_input('','', 3)
-image1_input4 = st.text_input('','', 4)
-image1_input5 = st.text_input('','', 5)
+image1_input1 = st.text_input('Enter 5 words you feel:', '', key=1)
+image1_input2 = st.text_input('','', key=2)
+image1_input3 = st.text_input('','', key=3)
+image1_input4 = st.text_input('','', key=4)
+image1_input5 = st.text_input('','', key=5)
