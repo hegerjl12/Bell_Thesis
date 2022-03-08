@@ -1,5 +1,5 @@
 import streamlit as st
-
+from PIL import Image
 
 st.set_page_config(
      page_title="Bell Thesis",
@@ -10,4 +10,6 @@ st.set_page_config(
 
 st.title("Selina's Thesis")
 
+image = Image.open("404A4573.jpg")
 
+st.image(image)
