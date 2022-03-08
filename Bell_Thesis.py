@@ -8,8 +8,14 @@ st.set_page_config(
 )
 
 
-st.title("Selina's Thesis")
+st.title('Selina's Thesis')
 
-image = Image.open("404A4573.jpg")
+image = Image.open('404A4573.jpg')
 
 st.image(image, width=1024)
+
+image1_input1 = st.text_input('Enter 5 words you feel:', '')
+image1_input2 = st.text_input('','')
+image1_input3 = st.text_input('','')
+image1_input4 = st.text_input('','')
+image1_input5 = st.text_input('','')
