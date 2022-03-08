@@ -20,5 +20,4 @@ image1_input3 = st.text_input('','', key=3)
 image1_input4 = st.text_input('','', key=4)
 image1_input5 = st.text_input('','', key=5)
 
-if not image1_input1:
-    image1_input1 = st.text_input('Enter 5 words you feel:', image1_input1, key=1, disabled=True)
+submit = st.button('Submit', key=6)
