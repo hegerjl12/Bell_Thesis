@@ -3,11 +3,27 @@ import pandas as pd
 from PIL import Image
 import random
 
-@st.cache(suppress_st_warning=True)
-def run_image_1(which_image, df):
+@st.cache
+def run_image_1(which_image):
      which_image = random.randint(1,3)
 
-     image = Image.open('image' + str(which_image) + '.jpg')
+
+st.set_page_config(
+     page_title="Bell Thesis",
+     page_icon="🔔",
+     layout="wide",
+)
+
+
+st.title("Selina's Thesis")
+
+df = pd.DataFrame(columns = ['Image1', 'Image2', 'Image3', 'Image4', 'Image5'])
+
+which_image = 0
+
+run_image_1(which_image, df)
+
+image = Image.open('image' + str(which_image) + '.jpg')
 
      st.image(image, width=1024)
 
@@ -32,19 +48,3 @@ def run_image_1(which_image, df):
           df = df.append({'Image1' : image1_input5}, ignore_index = True)
 
           st.write(df)
-
-
-st.set_page_config(
-     page_title="Bell Thesis",
-     page_icon="🔔",
-     layout="wide",
-)
-
-
-st.title("Selina's Thesis")
-
-df = pd.DataFrame(columns = ['Image1', 'Image2', 'Image3', 'Image4', 'Image5'])
-
-which_image = 0
-
-run_image_1(which_image, df)
