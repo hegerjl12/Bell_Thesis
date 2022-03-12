@@ -18,7 +18,7 @@ which_image = 0
 
 for i in range(1):
      
-     which_image = randint(1,3)
+     which_image = random.randint(1,3)
 
      image = Image.open('image' + str(which_image) + '.jpg')
 
