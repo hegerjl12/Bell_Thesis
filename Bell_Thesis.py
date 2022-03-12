@@ -3,7 +3,7 @@ import pandas as pd
 from PIL import Image
 import random
 
-@st.cache
+@st.cache(suppress_st_warning=True)
 def run_image_1(which_image, df):
      which_image = random.randint(1,3)
 
