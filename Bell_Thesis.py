@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from PIL import Image
+import random
 
 st.set_page_config(
      page_title="Bell Thesis",
@@ -13,9 +14,13 @@ st.title("Selina's Thesis")
 
 df = pd.DataFrame(columns = ['Image1', 'Image2', 'Image3', 'Image4', 'Image5'])
 
+which_image = 0
+
 for i in range(1):
-          
-     image = Image.open('404A4573.jpg')
+     
+     which_image = randint(1,3)
+
+     image = Image.open('image' + str(which_image) + '.jpg')
 
      st.image(image, width=1024)
 
@@ -40,3 +45,5 @@ for i in range(1):
           df = df.append({'Image1' : image1_input5}, ignore_index = True)
 
           st.write(df)
+
+     
