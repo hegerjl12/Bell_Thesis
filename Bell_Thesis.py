@@ -32,7 +32,7 @@ for i in range(1):
      image1_input4 = st.text_input('','', key=4)
      image1_input5 = st.text_input('','', key=5)
 
-     submit = st.button('Submit', key=6, disabled=True)
+     submit = False
 
      if image1_input1 and image1_input2 and image1_input3 and image1_input4 and image1_input5:
           submit = st.button('Submit', key=6, disabled=False)
