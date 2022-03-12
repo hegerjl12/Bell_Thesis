@@ -12,7 +12,7 @@ st.title("Selina's Thesis")
 
 answer_table1 = []
 
-for i in range(len(5)):
+for i in range(5):
           
      image = Image.open('404A4573.jpg')
 
