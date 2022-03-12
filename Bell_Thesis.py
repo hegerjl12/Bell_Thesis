@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 from PIL import Image
 
 st.set_page_config(
@@ -10,7 +11,7 @@ st.set_page_config(
 
 st.title("Selina's Thesis")
 
-answer_table1 = []
+df = pd.DataFrame(columns = ['Image1', 'Image2', 'Image3', 'Image4', 'Image5'])
 
 for i in range(1):
           
@@ -32,10 +33,10 @@ for i in range(1):
           submit = st.button('Submit', key=6, disabled=False)
 
      if submit:
-          answer_table1 += str(image1_input1)
-          answer_table1 += image1_input2
-          answer_table1 += image1_input3
-          answer_table1 += image1_input4
-          answer_table1 += image1_input5
+          df = df.append({'Image1' : image1_input1}, ignore_index = True)
+          df = df.append({'Image1' : image1_input2}, ignore_index = True)
+          df = df.append({'Image1' : image1_input3}, ignore_index = True)
+          df = df.append({'Image1' : image1_input4}, ignore_index = True)
+          df = df.append({'Image1' : image1_input5}, ignore_index = True)
 
-          st.write(answer_table1)
+          st.write(df)
