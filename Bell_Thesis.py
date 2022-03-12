@@ -32,7 +32,7 @@ for i in range(1):
           submit = st.button('Submit', key=6, disabled=False)
 
      if submit:
-          answer_table1 += image1_input1
+          answer_table1 += str(image1_input1)
           answer_table1 += image1_input2
           answer_table1 += image1_input3
           answer_table1 += image1_input4
