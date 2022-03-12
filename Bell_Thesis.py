@@ -6,6 +6,7 @@ import random
 @st.cache
 def run_image_1(which_image):
      which_image = random.randint(1,3)
+     return which_image
 
 
 st.set_page_config(
@@ -21,7 +22,7 @@ df = pd.DataFrame(columns = ['Image1', 'Image2', 'Image3', 'Image4', 'Image5'])
 
 which_image = 0
 
-run_image_1(which_image)
+which_image = run_image_1(which_image)
 
 image = Image.open('image' + str(which_image) + '.jpg')
 
