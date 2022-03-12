@@ -38,4 +38,4 @@ for i in range(1):
           answer_table1 += image1_input4
           answer_table1 += image1_input5
 
-          st.write(answer_table)
+          st.write(answer_table1)
