@@ -25,26 +25,26 @@ run_image_1(which_image, df)
 
 image = Image.open('image' + str(which_image) + '.jpg')
 
-     st.image(image, width=1024)
+st.image(image, width=1024)
 
-     st.write('Enter 5 words you feel:')
+st.write('Enter 5 words you feel:')
 
-     image1_input1 = st.text_input('','', key=1)  
-     image1_input2 = st.text_input('','', key=2)
-     image1_input3 = st.text_input('','', key=3)
-     image1_input4 = st.text_input('','', key=4)
-     image1_input5 = st.text_input('','', key=5)
+image1_input1 = st.text_input('','', key=1)  
+image1_input2 = st.text_input('','', key=2)
+image1_input3 = st.text_input('','', key=3)
+image1_input4 = st.text_input('','', key=4)
+image1_input5 = st.text_input('','', key=5)
 
-     submit = False
+submit = False
 
-     if image1_input1 and image1_input2 and image1_input3 and image1_input4 and image1_input5:
-          submit = st.button('Submit', key=6, disabled=False)
+if image1_input1 and image1_input2 and image1_input3 and image1_input4 and image1_input5:
+     submit = st.button('Submit', key=6, disabled=False)
 
-     if submit:
-          df = df.append({'Image1' : image1_input1}, ignore_index = True)
-          df = df.append({'Image1' : image1_input2}, ignore_index = True)
-          df = df.append({'Image1' : image1_input3}, ignore_index = True)
-          df = df.append({'Image1' : image1_input4}, ignore_index = True)
-          df = df.append({'Image1' : image1_input5}, ignore_index = True)
+if submit:
+     df = df.append({'Image1' : image1_input1}, ignore_index = True)
+     df = df.append({'Image1' : image1_input2}, ignore_index = True)
+     df = df.append({'Image1' : image1_input3}, ignore_index = True)
+     df = df.append({'Image1' : image1_input4}, ignore_index = True)
+     df = df.append({'Image1' : image1_input5}, ignore_index = True)
 
-          st.write(df)
+     st.write(df)
