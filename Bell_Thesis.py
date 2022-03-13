@@ -28,7 +28,7 @@ image_order = []
 
 i = random.randint(1,3)
 
-while i is in image_order:
+while i in image_order:
      i = random.randint(1,3)
 
 st.write(image_order)
