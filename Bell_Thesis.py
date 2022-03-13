@@ -7,6 +7,10 @@ import random
 def add_image_order(i):
      image_order.append(i)
 
+@st.cache
+def create_image_order():
+     image_order = []
+
 
 st.set_page_config(
      page_title="Bell Thesis",
@@ -23,6 +27,8 @@ i = random.randint(1,3)
 
 while i in image_order:
      i = random.randint(1,3)
+
+create_image_order()
 
 st.write(image_order)
 
