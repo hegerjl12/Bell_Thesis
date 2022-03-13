@@ -49,12 +49,12 @@ image_input3 = st.text_input('','', key=3)
 image_input4 = st.text_input('','', key=4)
 image_input5 = st.text_input('','', key=5)
 
-submit = False
+submit1 = False
 
 if image_input1 and image_input2 and image_input3 and image_input4 and image_input5:
-     submit = st.button('Submit', key=16, disabled=False)
+     submit1 = st.button('Submit', key=16, disabled=False)
 
-if submit:
+if submit1:
      df = df.append({'Image1' : image_input1}, ignore_index = True)
      df = df.append({'Image1' : image_input2}, ignore_index = True)
      df = df.append({'Image1' : image_input3}, ignore_index = True)
@@ -74,12 +74,12 @@ image_input3 = st.text_input('','', key=8)
 image_input4 = st.text_input('','', key=9)
 image_input5 = st.text_input('','', key=10)
 
-submit = False
+submit2 = False
 
 if image_input1 and image_input2 and image_input3 and image_input4 and image_input5:
-     submit = st.button('Submit', key=17, disabled=False)
+     submit2 = st.button('Submit', key=17, disabled=False)
 
-if submit:
+if submit2:
      df = df.append({'Image2' : image_input1}, ignore_index = True)
      df = df.append({'Image2' : image_input2}, ignore_index = True)
      df = df.append({'Image2' : image_input3}, ignore_index = True)
@@ -98,14 +98,17 @@ image_input3 = st.text_input('','', key=13)
 image_input4 = st.text_input('','', key=14)
 image_input5 = st.text_input('','', key=15)
 
-submit = False
+submit3 = False
 
 if image_input1 and image_input2 and image_input3 and image_input4 and image_input5:
-     submit = st.button('Submit', key=18, disabled=False)
+     submit3 = st.button('Submit', key=18, disabled=False)
 
-if submit:
+if submit3:
      df = df.append({'Image3' : image_input1}, ignore_index = True)
      df = df.append({'Image3' : image_input2}, ignore_index = True)
      df = df.append({'Image3' : image_input3}, ignore_index = True)
      df = df.append({'Image3' : image_input4}, ignore_index = True)
      df = df.append({'Image3' : image_input5}, ignore_index = True)
+
+if submit1 and submit2 and submit3:
+     st.write(df)
