@@ -26,22 +26,27 @@ df = pd.DataFrame(columns = ['Image1', 'Image2', 'Image3', 'Image4', 'Image5', '
 
 image_order = []
 
-image_order = run_image_order(image_order)
+i = random.randint(1,3)
+
+while i is in image_order:
+     i = random.randint(1,3)
+
 st.write(image_order)
-for i in image_order:
-          image = Image.open('image' + str(i) + '.jpg')
 
-          st.image(image, width=1024)
+image = Image.open('image' + str(i) + '.jpg')
 
-          st.write('Enter 3 words you feel:')
+st.image(image, width=1024)
 
-          image_input = st.text_area('','', key=i)  
+st.write('Enter 3 words you feel:')
 
-          submit = st.button('Submit', key=i+10, disabled=False)
+image_input = st.text_area('','', key=i)  
 
-          if submit:
-               words = image_input1.split()
-               df = df.append({('Image'+str(i)): words[0]}, ignore_index = True)
-               df = df.append({('Image'+str(i)): words[1]}, ignore_index = True)
-               df = df.append({('Image'+str(i)): words[2]}, ignore_index = True)
-   
+submit = st.button('Submit', key=i+10, disabled=False)
+
+if submit:
+     words = image_input1.split()
+     df = df.append({('Image'+str(i)): words[0]}, ignore_index = True)
+     df = df.append({('Image'+str(i)): words[1]}, ignore_index = True)
+     df = df.append({('Image'+str(i)): words[2]}, ignore_index = True)
+
+     image_order.append(i)
