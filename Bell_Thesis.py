@@ -43,16 +43,16 @@ st.image(image, width=1024)
 
 st.write('Enter 5 words you feel:')
 
-image_input1 = st.text_input('','', key=1)  
-image_input2 = st.text_input('','', key=2)
-image_input3 = st.text_input('','', key=3)
-image_input4 = st.text_input('','', key=4)
-image_input5 = st.text_input('','', key=5)
+image_input1 = st.text_input('','')  
+image_input2 = st.text_input('','')
+image_input3 = st.text_input('','')
+image_input4 = st.text_input('','')
+image_input5 = st.text_input('','')
 
 submit = False
 
 if image_input1 and image_input2 and image_input3 and image_input4 and image_input5:
-     submit = st.button('Submit', key=6, disabled=False)
+     submit = st.button('Submit', disabled=False)
 
 if submit:
      df = df.append({'Image1' : image_input1}, ignore_index = True)
@@ -68,16 +68,16 @@ st.image(image, width=1024)
 
 st.write('Enter 5 words you feel:')
 
-image_input1 = st.text_input('','', key=1)  
-image_input2 = st.text_input('','', key=2)
-image_input3 = st.text_input('','', key=3)
-image_input4 = st.text_input('','', key=4)
-image_input5 = st.text_input('','', key=5)
+image_input1 = st.text_input('','')  
+image_input2 = st.text_input('','')
+image_input3 = st.text_input('','')
+image_input4 = st.text_input('','')
+image_input5 = st.text_input('','')
 
 submit = False
 
 if image_input1 and image_input2 and image_input3 and image_input4 and image_input5:
-     submit = st.button('Submit', key=6, disabled=False)
+     submit = st.button('Submit', disabled=False)
 
 if submit:
      df = df.append({'Image2' : image_input1}, ignore_index = True)
@@ -92,16 +92,16 @@ st.image(image, width=1024)
 
 st.write('Enter 5 words you feel:')
 
-image_input1 = st.text_input('','', key=1)  
-image_input2 = st.text_input('','', key=2)
-image_input3 = st.text_input('','', key=3)
-image_input4 = st.text_input('','', key=4)
-image_input5 = st.text_input('','', key=5)
+image_input1 = st.text_input('','')  
+image_input2 = st.text_input('','')
+image_input3 = st.text_input('','')
+image_input4 = st.text_input('','')
+image_input5 = st.text_input('','')
 
 submit = False
 
 if image_input1 and image_input2 and image_input3 and image_input4 and image_input5:
-     submit = st.button('Submit', key=6, disabled=False)
+     submit = st.button('Submit', disabled=False)
 
 if submit:
      df = df.append({'Image3' : image_input1}, ignore_index = True)
