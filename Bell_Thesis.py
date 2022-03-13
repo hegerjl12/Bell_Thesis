@@ -3,13 +3,8 @@ import pandas as pd
 from PIL import Image
 import random
 
-@st.cache
 def add_image_order(i):
      image_order.append(i)
-
-@st.cache
-def create_image_order():
-     image_order = []
 
 
 st.set_page_config(
@@ -23,12 +18,12 @@ st.title("Selina's Thesis")
 
 df = pd.DataFrame(columns = ['Image1', 'Image2', 'Image3', 'Image4', 'Image5', 'Image6', 'Image7', 'Image8', 'Image9', 'Image10'])
 
+#if image_order not in st.sessionstate
 i = random.randint(1,3)
 
 while i in image_order:
      i = random.randint(1,3)
      
-image_order
 create_image_order()
 
 st.write(image_order)
