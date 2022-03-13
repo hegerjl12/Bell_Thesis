@@ -4,9 +4,8 @@ from PIL import Image
 import random
 
 @st.cache
-def add_image_order(image_order, i):
+def add_image_order(i):
      image_order.append(i)
-     return image_order
 
 
 st.set_page_config(
@@ -45,4 +44,4 @@ if submit:
      df = df.append({('Image'+str(i)): words[1]}, ignore_index = True)
      df = df.append({('Image'+str(i)): words[2]}, ignore_index = True)
 
-     image_order = add_image_order(image_order, i)
+     image_order = add_image_order(i)
