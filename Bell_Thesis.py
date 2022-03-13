@@ -5,7 +5,7 @@ import numpy as np
 
 @st.cache
 def run_image_order(image_order):
-     image_order = np.random.randit(1,3,3)
+     image_order = np.random.randit(3, size=3)
      
      return image_order
 
