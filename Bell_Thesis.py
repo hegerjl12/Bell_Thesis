@@ -28,7 +28,7 @@ df = pd.DataFrame(columns = ['Image1', 'Image2', 'Image3', 'Image4', 'Image5', '
 image_order = []
 
 image_order = run_image_order(image_order)
-
+st.write(image_order)
 for i in image_order:
      if i:
           image = Image.open('image1.jpg')
