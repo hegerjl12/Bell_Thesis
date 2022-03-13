@@ -8,7 +8,7 @@ from random import randint
 def run_image_order(image_order):
      seed(1)
      while len(image_order) == 3:
-	     num = randint(1,3)
+	     num = random.randint(1,3)
 
           if num not in image_order:
                image_order.append(num)
