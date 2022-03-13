@@ -5,19 +5,7 @@ import random
 
 @st.cache
 def run_image_order(image_order):
-     first = random.randint(1,3)
-
-     second = random.randint(1,3)
-     while(first == second):
-          second = random.randint(1,3)
-     
-     third = random.randint(1,3)
-     while(third == first or third == second):
-          third = random.randint(1,3)
-
-     image_order.append(first)
-     image_order.append(second)
-     image_order.append(third)
+     image_order = random.randit(1,3,3)
      
      return image_order
 
@@ -52,7 +40,7 @@ image_input5 = st.text_input('','', key=5)
 submit1 = False
 
 if image_input1 and image_input2 and image_input3 and image_input4 and image_input5:
-     submit1 = st.button('Submit', key=16, disabled=False)
+     submit = st.button('Submit', key=16, disabled=False)
 
 if submit1:
      df = df.append({'Image1' : image_input1}, ignore_index = True)
