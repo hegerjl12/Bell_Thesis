@@ -27,7 +27,8 @@ i = random.randint(1,3)
 
 while i in image_order:
      i = random.randint(1,3)
-
+     
+image_order
 create_image_order()
 
 st.write(image_order)
