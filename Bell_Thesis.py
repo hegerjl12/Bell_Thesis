@@ -3,13 +3,9 @@ import pandas as pd
 from PIL import Image
 import random
 
-def run_image_order(image_order):
-     while len(image_order) != 3:
-          num = random.randint(1,3)
-     
-          if num not in image_order:
-               image_order.append(num)
-
+@st.cache
+def add_image_order(image_order, i):
+     image_order.append(i)
      return image_order
 
 
@@ -49,4 +45,4 @@ if submit:
      df = df.append({('Image'+str(i)): words[1]}, ignore_index = True)
      df = df.append({('Image'+str(i)): words[2]}, ignore_index = True)
 
-     image_order.append(i)
+     image_order = add_image_order(image_order, i)
