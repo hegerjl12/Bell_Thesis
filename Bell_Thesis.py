@@ -30,20 +30,19 @@ image_order = []
 image_order = run_image_order(image_order)
 
 for i in image_order:
-     match i:
-          case 1:
-               image = Image.open('image1.jpg')
+     if i:
+          image = Image.open('image1.jpg')
 
-               st.image(image, width=1024)
+          st.image(image, width=1024)
 
-               st.write('Enter 3 words you feel:')
+          st.write('Enter 3 words you feel:')
 
-               image_input1 = st.text_area('','', key=1)  
+          image_input1 = st.text_area('','', key=1)  
 
-               submit1 = st.button('Submit', key=16, disabled=False)
+          submit1 = st.button('Submit', key=16, disabled=False)
 
-               if submit1:
-                    words = image_input1.split()
-                    df = df.append({('Image1' : words[0]}, ignore_index = True)
-                    df = df.append({('Image1' : words[1]}, ignore_index = True)
-                    df = df.append({('Image1' : words[2]}, ignore_index = True)
+          if submit1:
+               words = image_input1.split()
+               df = df.append({('Image1' : words[0]}, ignore_index = True)
+               df = df.append({('Image1' : words[1]}, ignore_index = True)
+               df = df.append({('Image1' : words[2]}, ignore_index = True)
