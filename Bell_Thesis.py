@@ -43,11 +43,11 @@ st.image(image, width=1024)
 
 st.write('Enter 5 words you feel:')
 
-image_input1 = st.text_input('','')  
-image_input2 = st.text_input('','')
-image_input3 = st.text_input('','')
-image_input4 = st.text_input('','')
-image_input5 = st.text_input('','')
+image_input1 = st.text_input('','', key=1)  
+image_input2 = st.text_input('','', key=2)
+image_input3 = st.text_input('','', key=3)
+image_input4 = st.text_input('','', key=4)
+image_input5 = st.text_input('','', key=5)
 
 submit = False
 
@@ -68,11 +68,11 @@ st.image(image, width=1024)
 
 st.write('Enter 5 words you feel:')
 
-image_input1 = st.text_input('','')  
-image_input2 = st.text_input('','')
-image_input3 = st.text_input('','')
-image_input4 = st.text_input('','')
-image_input5 = st.text_input('','')
+image_input1 = st.text_input('','', key=6)  
+image_input2 = st.text_input('','', key=7)
+image_input3 = st.text_input('','', key=8)
+image_input4 = st.text_input('','', key=9)
+image_input5 = st.text_input('','', key=10)
 
 submit = False
 
@@ -92,11 +92,11 @@ st.image(image, width=1024)
 
 st.write('Enter 5 words you feel:')
 
-image_input1 = st.text_input('','')  
-image_input2 = st.text_input('','')
-image_input3 = st.text_input('','')
-image_input4 = st.text_input('','')
-image_input5 = st.text_input('','')
+image_input1 = st.text_input('','', key=11)  
+image_input2 = st.text_input('','', key=12)
+image_input3 = st.text_input('','', key=13)
+image_input4 = st.text_input('','', key=14)
+image_input5 = st.text_input('','', key=15)
 
 submit = False
 
