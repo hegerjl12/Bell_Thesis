@@ -1,11 +1,11 @@
 import streamlit as st
 import pandas as pd
 from PIL import Image
-import numpy as np
+import numpy as random
 
 @st.cache
 def run_image_order(image_order):
-     image_order = np.random.randit(3, size=3)
+     image_order = random.randit(3, size=3)
      
      return image_order
 
