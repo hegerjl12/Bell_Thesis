@@ -13,6 +13,7 @@ def run_image_order(image_order):
           if num not in image_order:
                image_order.append(num)
 
+     st.write(image_order)
      return image_order
 
 
@@ -31,7 +32,7 @@ image_order = []
 
 image_order = run_image_order(image_order)
 
-image = Image.open('image' + str(image_order[0]) + '.jpg')
+image = Image.open('image' + str(image_order) + '.jpg')
 
 st.image(image, width=1024)
 
