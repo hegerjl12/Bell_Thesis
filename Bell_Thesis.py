@@ -43,6 +43,6 @@ for i in image_order:
 
           if submit1:
                words = image_input1.split()
-               df = df.append({('Image1': words[0]}, ignore_index = True)
-               df = df.append({('Image1': words[1]}, ignore_index = True)
-               df = df.append({('Image1': words[2]}, ignore_index = True)
+               df = df.append({'Image1': words[0]}, ignore_index = True)
+               df = df.append({'Image1': words[1]}, ignore_index = True)
+               df = df.append({'Image1': words[2]}, ignore_index = True)
