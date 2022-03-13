@@ -52,7 +52,7 @@ image_input5 = st.text_input('','', key=5)
 submit = False
 
 if image_input1 and image_input2 and image_input3 and image_input4 and image_input5:
-     submit = st.button('Submit', disabled=False)
+     submit = st.button('Submit', key=16, disabled=False)
 
 if submit:
      df = df.append({'Image1' : image_input1}, ignore_index = True)
@@ -77,7 +77,7 @@ image_input5 = st.text_input('','', key=10)
 submit = False
 
 if image_input1 and image_input2 and image_input3 and image_input4 and image_input5:
-     submit = st.button('Submit', disabled=False)
+     submit = st.button('Submit', key=17, disabled=False)
 
 if submit:
      df = df.append({'Image2' : image_input1}, ignore_index = True)
@@ -101,7 +101,7 @@ image_input5 = st.text_input('','', key=15)
 submit = False
 
 if image_input1 and image_input2 and image_input3 and image_input4 and image_input5:
-     submit = st.button('Submit', disabled=False)
+     submit = st.button('Submit', key=18, disabled=False)
 
 if submit:
      df = df.append({'Image3' : image_input1}, ignore_index = True)
