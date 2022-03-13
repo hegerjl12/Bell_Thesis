@@ -1,5 +1,5 @@
-#pandas
-#numpy
-streamlit==1.6.0
+pandas
+numpy
+streamlit==1.7.0
 #openpyxl
 #streamlit-option-menu
