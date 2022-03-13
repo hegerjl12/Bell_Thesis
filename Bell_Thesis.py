@@ -3,7 +3,7 @@ import pandas as pd
 from PIL import Image
 import random
 
-@st.cache
+#@st.cache
 def run_image_order(image_order):
      while len(image_order) != 3:
           num = random.randint(1,3)
