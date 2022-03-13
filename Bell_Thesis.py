@@ -59,7 +59,7 @@ image_input5 = st.text_input('','', key=5)
 
 submit = False
 
-if image_input and image_input2 and image_input3 and image_input4 and image_input5:
+if image_input1 and image_input2 and image_input3 and image_input4 and image_input5:
      submit = st.button('Submit', key=6, disabled=False)
 
 if submit:
