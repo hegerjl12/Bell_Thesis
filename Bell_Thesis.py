@@ -108,4 +108,4 @@ if submit:
      df = df.append({'Image3' : image_input2}, ignore_index = True)
      df = df.append({'Image3' : image_input3}, ignore_index = True)
      df = df.append({'Image3' : image_input4}, ignore_index = True)
-     df = df.append({'Image3 : image_input5}, ignore_index = True)
+     df = df.append({'Image3' : image_input5}, ignore_index = True)
