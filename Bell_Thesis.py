@@ -38,10 +38,44 @@ for i in image_order:
 
           image_input1 = st.text_area('','', key=1)  
 
-          submit1 = st.button('Submit', key=16, disabled=False)
+          submit1 = st.button('Submit', key=2, disabled=False)
 
           if submit1:
                words = image_input1.split()
                df = df.append({'Image1': words[0]}, ignore_index = True)
                df = df.append({'Image1': words[1]}, ignore_index = True)
                df = df.append({'Image1': words[2]}, ignore_index = True)
+     
+     if i == 2:
+          image = Image.open('image2.jpg')
+
+          st.image(image, width=1024)
+
+          st.write('Enter 3 words you feel:')
+
+          image_input1 = st.text_area('','', key=3)  
+
+          submit2 = st.button('Submit', key=4, disabled=False)
+
+          if submit1:
+               words = image_input1.split()
+               df = df.append({'Image2': words[0]}, ignore_index = True)
+               df = df.append({'Image2': words[1]}, ignore_index = True)
+               df = df.append({'Image2': words[2]}, ignore_index = True)
+
+     if i == 3:
+          image = Image.open('image3.jpg')
+
+          st.image(image, width=1024)
+
+          st.write('Enter 3 words you feel:')
+
+          image_input1 = st.text_area('','', key=5)  
+
+          submit3 = st.button('Submit', key=6, disabled=False)
+
+          if submit1:
+               words = image_input1.split()
+               df = df.append({'Image3': words[0]}, ignore_index = True)
+               df = df.append({'Image3': words[1]}, ignore_index = True)
+               df = df.append({'Image3': words[2]}, ignore_index = True)
