@@ -29,7 +29,7 @@ image_order = []
 image_order = run_image_order(image_order)
 st.write(image_order)
 for i in image_order:
-          image = Image.open('image' + str(i) '.jpg')
+          image = Image.open('image' + str(i) + '.jpg')
 
           st.image(image, width=1024)
 
