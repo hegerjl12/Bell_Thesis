@@ -57,7 +57,7 @@ for i in image_order:
 
           submit2 = st.button('Submit', key=4, disabled=False)
 
-          if submit1:
+          if submit2:
                words = image_input1.split()
                df = df.append({'Image2': words[0]}, ignore_index = True)
                df = df.append({'Image2': words[1]}, ignore_index = True)
@@ -74,7 +74,7 @@ for i in image_order:
 
           submit3 = st.button('Submit', key=6, disabled=False)
 
-          if submit1:
+          if submit3:
                words = image_input1.split()
                df = df.append({'Image3': words[0]}, ignore_index = True)
                df = df.append({'Image3': words[1]}, ignore_index = True)
