@@ -32,7 +32,7 @@ image_order = []
 
 image_order = run_image_order(image_order)
 
-image = Image.open('image' + str(image_order) + '.jpg')
+image = Image.open('image' + str(image_order[1]) + '.jpg')
 
 st.image(image, width=1024)
 
