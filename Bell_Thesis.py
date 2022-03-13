@@ -7,7 +7,7 @@ from random import randint
 @st.cache
 def run_image_order(image_order):
      seed(1)
-     while len(image_order) == 3:
+     while len(image_order) != 3:
           num = random.randint(1,3)
      
           if num not in image_order:
