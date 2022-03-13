@@ -4,7 +4,6 @@ from PIL import Image
 import random
 
 def run_image_order(image_order):
-     random.seed(1)
      while len(image_order) != 3:
           num = random.randint(1,3)
      
