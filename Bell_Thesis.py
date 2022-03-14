@@ -44,9 +44,8 @@ image_input = st.text_area('','', key=i)
 submit = st.button('Submit', key=i+10, disabled=False)
 
 if submit:
-     words = image_input1.split()
+     words = image_input.split()
      df = df.append({('Image'+str(i)): words[0]}, ignore_index = True)
      df = df.append({('Image'+str(i)): words[1]}, ignore_index = True)
      df = df.append({('Image'+str(i)): words[2]}, ignore_index = True)
 
-     image_order = add_image_order(i)
