@@ -30,7 +30,7 @@ i = random.randint(1,3)
 while i in st.session_state.image_order:
      i = random.randint(1,3)
      
-create_image_order()
+add_image_order(i)
 
 st.write(st.session_state.image_order)
 
