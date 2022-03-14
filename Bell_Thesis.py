@@ -40,8 +40,8 @@ submit = st.button('Submit', key=i+10, disabled=False)
 
 if submit:
      words = image_input.split()
-     st.session_state.df = df.append({('Image'+str(i)): words[0]}, ignore_index = True)
-     st.session_state.df = df.append({('Image'+str(i)): words[1]}, ignore_index = True)
-     st.session_state.df = df.append({('Image'+str(i)): words[2]}, ignore_index = True)
+     st.session_state.df = st.session_state.df.append({('Image'+str(i)): words[0]}, ignore_index = True)
+     st.session_state.df = st.session_state.df.append({('Image'+str(i)): words[1]}, ignore_index = True)
+     st.session_state.df = st.session_state.df.append({('Image'+str(i)): words[2]}, ignore_index = True)
 
 st.write(st.session_state.df)
