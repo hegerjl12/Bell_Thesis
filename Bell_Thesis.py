@@ -14,7 +14,7 @@ st.set_page_config(
 st.title("Selina's Thesis")
 
 if 'df' not in st.session_state:
-     df = pd.DataFrame(columns = ['Image1', 'Image2', 'Image3', 'Image4', 'Image5', 'Image6', 'Image7', 'Image8', 'Image9', 'Image10'])
+     st.session_state.df = pd.DataFrame(columns = ['Image1', 'Image2', 'Image3', 'Image4', 'Image5', 'Image6', 'Image7', 'Image8', 'Image9', 'Image10'])
 
 if 'image_order' not in st.session_state:
      st.session_state.image_order = []
@@ -40,8 +40,8 @@ submit = st.button('Submit', key=i+10, disabled=False)
 
 if submit:
      words = image_input.split()
-     df = df.append({('Image'+str(i)): words[0]}, ignore_index = True)
-     df = df.append({('Image'+str(i)): words[1]}, ignore_index = True)
-     df = df.append({('Image'+str(i)): words[2]}, ignore_index = True)
+     st.session_state.df = df.append({('Image'+str(i)): words[0]}, ignore_index = True)
+     st.session_state.df = df.append({('Image'+str(i)): words[1]}, ignore_index = True)
+     st.session_state.df = df.append({('Image'+str(i)): words[2]}, ignore_index = True)
 
-st.write(df)
+st.write(st.session_state.df)
