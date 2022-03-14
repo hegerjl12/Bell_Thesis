@@ -4,7 +4,7 @@ from PIL import Image
 import random
 
 def add_image_order(i):
-     image_order.append(i)
+     st.session_state.image_order.append(i)
 
 
 st.set_page_config(
@@ -27,12 +27,12 @@ if 'image_order' not in st.sessionstate:
      
 i = random.randint(1,3)
 
-while i in image_order:
+while i in st.session_state.image_order:
      i = random.randint(1,3)
      
 create_image_order()
 
-st.write(image_order)
+st.write(st.session_state.image_order)
 
 image = Image.open('image' + str(i) + '.jpg')
 
