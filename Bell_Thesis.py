@@ -16,19 +16,18 @@ st.set_page_config(
 
 st.title("Selina's Thesis")
 
-"st.session_state object:", st.session_state
-
-
 
 df = pd.DataFrame(columns = ['Image1', 'Image2', 'Image3', 'Image4', 'Image5', 'Image6', 'Image7', 'Image8', 'Image9', 'Image10'])
 
 if 'image_order' not in st.session_state:
      st.session_state.image_order = []
+
+if 
      
 i = random.randint(1,3)
 
-while i in st.session_state.image_order:
-     i = random.randint(1,3)
+#while i in st.session_state.image_order:
+ #    i = random.randint(1,3)
      
 add_image_order(i)
 
