@@ -12,7 +12,7 @@ st.set_page_config(
 
 
 st.title("Selina's Thesis")
-arr = np.random.arrange(3)
+arr = np.random.arange(3)
 
 if 'df' not in st.session_state:
      st.session_state.df = pd.DataFrame(columns = ['Image1', 'Image2', 'Image3', 'Image4', 'Image5', 'Image6', 'Image7', 'Image8', 'Image9', 'Image10'])
