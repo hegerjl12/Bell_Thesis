@@ -22,7 +22,7 @@ if 'image_order' not in st.session_state:
 
      
 if 'i' not in st.session_state:
-     st.session_state.i = st.session_state.image_order[1]
+     st.session_state.i = st.session_state.image_order
 
 if 'next' not in st.session_state:
      st.session_state.next = 1
