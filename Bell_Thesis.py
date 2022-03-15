@@ -28,7 +28,7 @@ if 'next' not in st.session_state:
      st.session_state.next = 0
 
 
-st.DataFrame(st.session_state.image_order)
+st.dataframe(st.session_state.image_order)
 st.write(st.session_state.i)
 
 #image = Image.open('image' + str(st.session_state.i) + '.jpg')
