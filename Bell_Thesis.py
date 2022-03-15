@@ -18,7 +18,7 @@ if 'df' not in st.session_state:
 
 if 'image_order' not in st.session_state:
 
-     st.session_state.image_order = np.random.randint(1:3, size=3)
+     st.session_state.image_order = np.random.randint(3, size=3)
      st.session_state.image_order = np.random.shuffle(st.session_state.image_order)
 
      
@@ -26,7 +26,7 @@ if 'i' not in st.session_state:
      st.session_state.i = st.session_state.image_order[0]
 
 if 'next' not in st.session_state:
-     st.session_state.next = 1
+     st.session_state.next = 0
 
 
 st.write(st.session_state.image_order)
