@@ -17,9 +17,7 @@ if 'df' not in st.session_state:
      st.session_state.df = pd.DataFrame(columns = ['Image1', 'Image2', 'Image3', 'Image4', 'Image5', 'Image6', 'Image7', 'Image8', 'Image9', 'Image10'])
 
 if 'image_order' not in st.session_state:
-
-     st.session_state.image_order = np.random.randint(3, size=3)
-     #st.session_state.image_order = np.random.shuffle(st.session_state.image_order)
+     st.session_state.image_order = np.random.shuffle([1, 2, 3])
 
      
 if 'i' not in st.session_state:
