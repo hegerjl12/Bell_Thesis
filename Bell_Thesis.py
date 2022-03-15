@@ -20,10 +20,10 @@ if 'image_order' not in st.session_state:
      st.session_state.image_order = np.random.randint(3, size=3)
      
 if 'i' not in st.session_state:
-     st.session_state.i = st.session_state.image_order[0]
+     st.session_state.i = st.session_state.image_order[1]
 
 if 'next' not in st.session_state:
-     st.session_state.next = 0
+     st.session_state.next = 1
 
 
 st.write(st.session_state.image_order)
