@@ -13,13 +13,12 @@ st.set_page_config(
 
 st.title("Selina's Thesis")
 arr = np.arange(3)
-st.write(arr)
 
 if 'df' not in st.session_state:
      st.session_state.df = pd.DataFrame(columns = ['Image1', 'Image2', 'Image3', 'Image4', 'Image5', 'Image6', 'Image7', 'Image8', 'Image9', 'Image10'])
 
 if 'image_order' not in st.session_state:
-     st.session_state.image_order = np.random.shuffle(arr)
+     st.session_state.image_order = []
 
      
 if 'i' not in st.session_state:
@@ -28,6 +27,7 @@ if 'i' not in st.session_state:
 if 'next' not in st.session_state:
      st.session_state.next = 0
 
+st.session_state.image_order = np.random.shuffle(arr)
 
 st.dataframe(st.session_state.image_order)
 st.write(st.session_state.i)
