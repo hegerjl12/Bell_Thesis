@@ -18,7 +18,8 @@ if 'df' not in st.session_state:
 
 if 'image_order' not in st.session_state:
 
-     st.session_state.image_order = (np.random.shuffle(np.random.randint(3, size=3))).list
+     st.session_state.image_order = np.random.randint(3, size=3)
+     st.session_state.image_order = np.random.shuffle(st.session_state.image_order)
 
      
 if 'i' not in st.session_state:
