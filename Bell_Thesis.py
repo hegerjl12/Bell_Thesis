@@ -19,16 +19,13 @@ if 'df' not in st.session_state:
 if 'image_order' not in st.session_state:
      st.session_state.image_order = []
      
-i = random.randint(1,3)
+if 'i' not in st.session_state:
+     st.session_state.i = random.randint(1,3)
 
-while i in st.session_state.image_order:
-     i = random.randint(1,3)
-     
-st.session_state.image_order.append(i)
 
 st.write(st.session_state.image_order)
 
-image = Image.open('image' + str(i) + '.jpg')
+image = Image.open('image' + str(st.session_state.i) + '.jpg')
 
 st.image(image, width=1024)
 
@@ -36,12 +33,18 @@ st.write('Enter 3 words you feel:')
 
 image_input = st.text_area('','', key=i)  
 
-submit = st.button('Submit', key=i+10, disabled=False)
+submit = st.button('Submit', key=st.session_state.i+10, disabled=False)
 
 if submit:
      words = image_input.split()
-     st.session_state.df = st.session_state.df.append({('Image'+str(i)): words[0]}, ignore_index = True)
-     st.session_state.df = st.session_state.df.append({('Image'+str(i)): words[1]}, ignore_index = True)
-     st.session_state.df = st.session_state.df.append({('Image'+str(i)): words[2]}, ignore_index = True)
+     st.session_state.df = st.session_state.df.append({('Image'+str(st.session_state.i)): words[0]}, ignore_index = True)
+     st.session_state.df = st.session_state.df.append({('Image'+str(st.session_state.i)): words[1]}, ignore_index = True)
+     st.session_state.df = st.session_state.df.append({('Image'+str(st.session_state.i)): words[2]}, ignore_index = True)
 
-st.write(st.session_state.df)
+     while st.session_state.i in st.session_state.image_order:
+          st.session_state.i = random.randint(1,3)
+          
+     st.session_state.image_order.append(st.session_state.i)
+     st.session_state.i = random.randint(1,3)
+
+     st.write(st.session_state.df)
