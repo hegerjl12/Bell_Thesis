@@ -31,7 +31,7 @@ st.image(image, width=1024)
 
 st.write('Enter 3 words you feel:')
 
-image_input = st.text_area('','', key=i)  
+image_input = st.text_area('','', key=st.session_state.i)  
 
 submit = st.button('Submit', key=st.session_state.i+10, disabled=False)
 
