@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 from PIL import Image
-import random
+import numpy as np
 
 
 st.set_page_config(
@@ -20,7 +20,7 @@ if 'image_order' not in st.session_state:
      st.session_state.image_order = []
      
 if 'i' not in st.session_state:
-     st.session_state.i = random.randint(1,3)
+     st.session_state.i = np.random.randint(3, size=3)
 
 
 st.write(st.session_state.image_order)
