@@ -49,5 +49,5 @@ if st.session_state.i < 4:
 
           st.session_state.i = st.session_state.i + 1
 
-          image = Image.open('image' + sr(st.session_state.i) + '.jpg')
+          image = Image.open('image' + str(st.session_state.i) + '.jpg')
           
