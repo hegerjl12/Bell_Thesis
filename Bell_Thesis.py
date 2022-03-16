@@ -64,7 +64,8 @@ if st.session_state.i < 4:
                     st.experimental_rerun()
 
 else:
-     word_cloud = WordCloud(collocations = False, background_color = 'white').generate(st.session_state.image_words)
+     text = " ".join(st.session_state.image_words[0])
+     word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
      plt.imshow(wordcloud, interpolation='bilinear')
      plt.axis("off")
      plt.show()
