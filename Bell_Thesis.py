@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 import numpy as np
+import streamlit_wordcloud as wordcloud
 
 
 st.set_page_config(
@@ -10,21 +11,19 @@ st.set_page_config(
      layout="wide",
 )
 
+st.title("Selina's Thesis")
+
 def set_image():
      image = Image.open('image' + str(st.session_state.i) + '.jpg')
      with image_container:
           st.empty()
           st.image(image, width=1024)
-     
-     st.write('Enter 3 words you feel:')
-
-st.title("Selina's Thesis")
 
 image_container = st.empty()
 image_input = st.empty()
 
-if 'df' not in st.session_state:
-     st.session_state.df = pd.DataFrame(columns = ['Image1', 'Image2', 'Image3', 'Image4', 'Image5', 'Image6', 'Image7', 'Image8', 'Image9', 'Image10'])
+#if 'df' not in st.session_state:
+ #    st.session_state.df = pd.DataFrame(columns = ['Image1', 'Image2', 'Image3', 'Image4', 'Image5', 'Image6', 'Image7', 'Image8', 'Image9', 'Image10'])
 
 if 'image_order' not in st.session_state:
      st.session_state.image_order = [1, 2, 3]
@@ -32,8 +31,8 @@ if 'image_order' not in st.session_state:
 if 'i' not in st.session_state:
      st.session_state.i = 1
 
-if 'next' not in st.session_state:
-     st.session_state.next = 0
+#if 'next' not in st.session_state:
+ #    st.session_state.next = 0
 
 if 'image_words' not in st.session_state:
      st.session_state.image_words = []
