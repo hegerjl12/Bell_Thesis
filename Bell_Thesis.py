@@ -59,4 +59,10 @@ if st.session_state.i < 4:
           if st.session_state.i < 4:   
                set_image()
                text = image_input.text_area('','', key=st.session_state.i)
+          else:
+               with image_container:
+                    st.empty()
+
+else:
+     st.write("Now we make a word cloud")
           
