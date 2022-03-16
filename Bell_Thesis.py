@@ -29,7 +29,7 @@ if 'next' not in st.session_state:
 if 'image_words' not in st.session_state:
      st.session_state.image_words = []
 
-if st.session_state < 4:
+if st.session_state.i < 4:
 
      image = Image.open('image' + str(st.session_state.i) + '.jpg')
 
