@@ -37,9 +37,9 @@ if st.session_state.i < 4:
 
      st.write('Enter 3 words you feel:')
 
-     image_input = st.text_area('','', key=st.session_state.i)  
-
-     submit = st.button('Submit', key=st.session_state.i+10, disabled=False)
+     with st.form("Enter 3 words you feel: "):
+          image_input = st.text_area('','', key=st.session_state.i)  
+          submit = st.form_submit_button('Submit', key=st.session_state.i+10)
 
      if submit:
           words = image_input.split()
