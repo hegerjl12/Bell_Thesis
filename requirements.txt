@@ -3,4 +3,5 @@ numpy
 streamlit==1.7.0
 #openpyxl
 #streamlit-option-menu
-streamlit-wordcloud
+wordcloud
+matplotlib
