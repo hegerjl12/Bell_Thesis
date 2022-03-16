@@ -40,7 +40,7 @@ def cloud(image, text, max_word, max_font, random):
     # we could also give color_func=image_colors directly in the constructor
     axes[1].imshow(image, cmap=plt.cm.gray, interpolation="bilinear")
     for ax in axes:
-          x.set_axis_off()
+          ax.set_axis_off()
     st.pyplot()
 
 image_container = st.empty()
