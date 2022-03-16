@@ -66,6 +66,7 @@ if st.session_state.i < 4:
 else:
      text = " ".join(st.session_state.image_words[0])
      word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
-     plt.imshow(word_cloud, interpolation='bilinear')
-     plt.axis("off")
-     st.pyplot(plt.show())
+     fig, ax = plt.subplots()
+     fig.imshow(word_cloud, interpolation='bilinear')
+     ax.axis("off")
+     st.pyplot(fig)
