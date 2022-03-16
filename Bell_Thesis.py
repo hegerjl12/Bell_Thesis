@@ -45,5 +45,5 @@ if submit:
 
      st.write(st.session_state.df)
 
-     st.session_state.i = st.session_state.image_order[st.session_state.next+1]
+     st.session_state.i = st.session_state.i + 1
      
