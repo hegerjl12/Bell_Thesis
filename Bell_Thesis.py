@@ -11,6 +11,8 @@ st.set_page_config(
      layout="wide",
 )
 
+st.set_option('deprecation.showPyplotGlobalUse', False)
+
 st.title("Selina's Thesis")
 
 def set_image():
