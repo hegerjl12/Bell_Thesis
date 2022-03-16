@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 import numpy as np
-import streamlit_wordcloud as wordcloud
-
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 
 st.set_page_config(
      page_title="Bell Thesis",
@@ -64,5 +64,5 @@ if st.session_state.i < 4:
                     st.experimental_rerun()
 
 else:
-     st.write("Now we make a word cloud")
+     
           
