@@ -78,13 +78,13 @@ else:
      image_colors = ImageColorGenerator(image)
 
      # show the figure
-    plt.figure(figsize=(100,100))
-    fig, axes = plt.subplots(1,2, gridspec_kw={'width_ratios': [3, 2]})
-    axes[0].imshow(wc, interpolation="bilinear")
-    # recolor wordcloud and show
-    # we could also give color_func=image_colors directly in the constructor
-    axes[1].imshow(image, cmap=plt.cm.gray, interpolation="bilinear")
+     plt.figure(figsize=(100,100)) 
+     fig, axes = plt.subplots(1,2, gridspec_kw={'width_ratios': [3, 2]})
+     axes[0].imshow(wc, interpolation="bilinear")
+     # recolor wordcloud and show
+     # we could also give color_func=image_colors directly in the constructor
+     axes[1].imshow(image, cmap=plt.cm.gray, interpolation="bilinear")
 
-    for ax in axes:
+     for ax in axes:
         ax.set_axis_off()
-    st.pyplot()
+     st.pyplot()
