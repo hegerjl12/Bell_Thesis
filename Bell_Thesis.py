@@ -70,4 +70,16 @@ else:
      word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
      fig = plt.imshow(word_cloud, interpolation='bilinear')
      plt.axis("off")
-     st.pyplot(plt.show(fig))
+     st.pyplot(plt.show())
+
+     text = " ".join(st.session_state.image_words[1])
+     word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
+     fig = plt.imshow(word_cloud, interpolation='bilinear')
+     plt.axis("off")
+     st.pyplot(plt.show())
+
+     text = " ".join(st.session_state.image_words[2])
+     word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
+     fig = plt.imshow(word_cloud, interpolation='bilinear')
+     plt.axis("off")
+     st.pyplot(plt.show())
