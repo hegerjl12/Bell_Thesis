@@ -68,4 +68,4 @@ else:
      word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
      plt.imshow(word_cloud, interpolation='bilinear')
      plt.axis("off")
-     plt.show()
+     st.pyplot(plt.show())
