@@ -27,26 +27,23 @@ if 'next' not in st.session_state:
      st.session_state.next = 0
 
 
-st.dataframe(st.session_state.image_order)
-st.write(st.session_state.i)
+image = Image.open('image' + str(st.session_state.i) + '.jpg')
 
-#image = Image.open('image' + str(st.session_state.i) + '.jpg')
+st.image(image, width=1024)
 
-#st.image(image, width=1024)
+st.write('Enter 3 words you feel:')
 
-#st.write('Enter 3 words you feel:')
+image_input = st.text_area('','', key=st.session_state.i)  
 
-#image_input = st.text_area('','', key=st.session_state.i)  
+submit = st.button('Submit', key=st.session_state.i+10, disabled=False)
 
-#submit = st.button('Submit', key=st.session_state.i+10, disabled=False)
+if submit:
+     words = image_input.split()
+     st.session_state.df = st.session_state.df.append({('Image'+str(st.session_state.i)): words[0]}, ignore_index = True)
+     st.session_state.df = st.session_state.df.append({('Image'+str(st.session_state.i)): words[1]}, ignore_index = True)
+     st.session_state.df = st.session_state.df.append({('Image'+str(st.session_state.i)): words[2]}, ignore_index = True)
 
-#if submit:
-#     words = image_input.split()
-#     st.session_state.df = st.session_state.df.append({('Image'+str(st.session_state.i)): words[0]}, ignore_index = True)
-#     st.session_state.df = st.session_state.df.append({('Image'+str(st.session_state.i)): words[1]}, ignore_index = True)
-#     st.session_state.df = st.session_state.df.append({('Image'+str(st.session_state.i)): words[2]}, ignore_index = True)
+     st.write(st.session_state.df)
 
- #    st.write(st.session_state.df)
-
-  #   st.session_state.i = st.session_state.image_order[st.session_state.next+1]
+     st.session_state.i = st.session_state.image_order[st.session_state.next+1]
      
