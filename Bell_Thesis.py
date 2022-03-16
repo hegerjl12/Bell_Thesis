@@ -56,7 +56,7 @@ if st.session_state.i < 4:
           st.write(st.session_state.image_words)
 
           st.session_state.i = st.session_state.i + 1
-
-          set_image()
-          text = image_input.text_area('','', key=st.session_state.i)
+          if st.session_state.i < 4:   
+               set_image()
+               text = image_input.text_area('','', key=st.session_state.i)
           
