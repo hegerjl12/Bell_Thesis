@@ -26,30 +26,28 @@ if 'i' not in st.session_state:
 if 'next' not in st.session_state:
      st.session_state.next = 0
 
-if 'image1_words' not in st.session_state:
-     st.session_state.image1_words = []
+if 'image_words' not in st.session_state:
+     st.session_state.image_words = []
 
-if 'image2_words' not in st.session_state:
-     st.session_state.image2_words = []
+if st.session_state < 4:
 
-if 'image3_words' not in st.session_state:
-     st.session_state.image3_words = []
+     image = Image.open('image' + str(st.session_state.i) + '.jpg')
 
-image = Image.open('image' + str(st.session_state.i) + '.jpg')
+     st.image(image, width=1024)
 
-st.image(image, width=1024)
+     st.write('Enter 3 words you feel:')
 
-st.write('Enter 3 words you feel:')
+     image_input = st.text_area('','', key=st.session_state.i)  
 
-image_input = st.text_area('','', key=st.session_state.i)  
+     submit = st.button('Submit', key=st.session_state.i+10, disabled=False)
 
-submit = st.button('Submit', key=st.session_state.i+10, disabled=False)
+     if submit:
+          words = image_input.split()
+          st.session_state.image_words.append(words)
 
-if submit:
-     words = image_input.split()
-     st.session_state.image1_words.append(words)
+          st.write(st.session_state.image_words)
 
-     st.write(st.session_state.image1_words)
+          st.session_state.i = st.session_state.i + 1
 
-     st.session_state.i = st.session_state.i + 1
-     
+          image = Image.open('image' + sr(st.session_state.i) + '.jpg')
+          
