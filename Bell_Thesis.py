@@ -49,7 +49,7 @@ if st.session_state.i < 4:
 
      if submit:
           words = text.split()
-          image_input.empty()
+          image_input.empty()  
           
           st.session_state.image_words.append(words)
 
@@ -58,4 +58,5 @@ if st.session_state.i < 4:
           st.session_state.i = st.session_state.i + 1
 
           set_image()
+          text = image_input.text_area('','', key=st.session_state.i)
           
