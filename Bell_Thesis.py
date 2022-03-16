@@ -19,6 +19,7 @@ def set_image():
 st.title("Selina's Thesis")
 
 image_container = st.empty()
+image_input = st.empty()
 
 if 'df' not in st.session_state:
      st.session_state.df = pd.DataFrame(columns = ['Image1', 'Image2', 'Image3', 'Image4', 'Image5', 'Image6', 'Image7', 'Image8', 'Image9', 'Image10'])
@@ -42,11 +43,13 @@ if st.session_state.i < 4:
      st.write('Enter 3 words you feel:')
 
      with st.form('wordForm'):
-          image_input = st.text_area('','', key=st.session_state.i)  
+          
+          image_input.text_area('','', key=st.session_state.i)  
           submit = st.form_submit_button('Submit')
 
      if submit:
           words = image_input.split()
+          
           st.session_state.image_words.append(words)
 
           st.write(st.session_state.image_words)
