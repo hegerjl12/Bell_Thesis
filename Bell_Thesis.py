@@ -44,11 +44,11 @@ if st.session_state.i < 4:
 
      with st.form('wordForm'):
           
-          image_input.text_area('','', key=st.session_state.i)  
+          text = image_input.text_area('','', key=st.session_state.i)  
           submit = st.form_submit_button('Submit')
 
      if submit:
-          words = image_input.split()
+          words = text.split()
           
           st.session_state.image_words.append(words)
 
