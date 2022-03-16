@@ -12,10 +12,12 @@ st.set_page_config(
 
 def set_image():
      image = Image.open('image' + str(st.session_state.i) + '.jpg')
-     st.image(image, width=1024)
+     with image_container:
+          st.image(image, width=1024)
 
 st.title("Selina's Thesis")
-arr = np.arange(3)
+
+image_container = st.container()
 
 if 'df' not in st.session_state:
      st.session_state.df = pd.DataFrame(columns = ['Image1', 'Image2', 'Image3', 'Image4', 'Image5', 'Image6', 'Image7', 'Image8', 'Image9', 'Image10'])
