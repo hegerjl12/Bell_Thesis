@@ -15,6 +15,8 @@ def set_image():
      with image_container:
           st.empty()
           st.image(image, width=1024)
+     
+     st.write('Enter 3 words you feel:')
 
 st.title("Selina's Thesis")
 
@@ -39,8 +41,6 @@ if 'image_words' not in st.session_state:
 if st.session_state.i < 4:
 
      set_image()
-
-     st.write('Enter 3 words you feel:')
 
      with st.form('wordForm'):
           
