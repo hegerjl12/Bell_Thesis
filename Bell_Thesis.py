@@ -26,6 +26,14 @@ if 'i' not in st.session_state:
 if 'next' not in st.session_state:
      st.session_state.next = 0
 
+if 'image1_words' not in st.session_state:
+     st.session_state.image1_words = []
+
+if 'image2_words' not in st.session_state:
+     st.session_state.image2_words = []
+
+if 'image3_words' not in st.session_state:
+     st.session_state.image3_words = []
 
 image = Image.open('image' + str(st.session_state.i) + '.jpg')
 
@@ -39,11 +47,9 @@ submit = st.button('Submit', key=st.session_state.i+10, disabled=False)
 
 if submit:
      words = image_input.split()
-     st.session_state.df = st.session_state.df.append({('Image'+str(st.session_state.i)): words[0]}, ignore_index = True)
-     st.session_state.df = st.session_state.df.append({('Image'+str(st.session_state.i)): words[1]}, ignore_index = True)
-     st.session_state.df = st.session_state.df.append({('Image'+str(st.session_state.i)): words[2]}, ignore_index = True)
+     st.session_state.image1_words.append(words)
 
-     st.write(st.session_state.df)
+     st.write(st.session_state.image1_words)
 
      st.session_state.i = st.session_state.i + 1
      
