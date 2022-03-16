@@ -19,6 +19,13 @@ def set_image():
           st.empty()
           st.image(image, width=1024)
 
+def cloud(image, text, max_word, max_font, random):
+    stopwords = set(STOPWORDS)
+    stopwords.update(['us', 'one', 'will', 'said', 'now', 'well', 'man', 'may',
+    'little', 'say', 'must', 'way', 'long', 'yet', 'mean',
+    'put', 'seem', 'asked', 'made', 'half', 'much',
+    'certainly', 'might', 'came'])
+
 image_container = st.empty()
 image_input = st.empty()
 
@@ -64,4 +71,20 @@ if st.session_state.i < 4:
                     st.experimental_rerun()
 
 else:
-     st.write("hi")
+     wc = WordCloud(background_color="white", colormap="hot", max_words=max_word, mask=image,
+          stopwords=stopwords, max_font_size=max_font, random_state=random)
+     
+     wc.generate(text)
+     image_colors = ImageColorGenerator(image)
+
+     # show the figure
+    plt.figure(figsize=(100,100))
+    fig, axes = plt.subplots(1,2, gridspec_kw={'width_ratios': [3, 2]})
+    axes[0].imshow(wc, interpolation="bilinear")
+    # recolor wordcloud and show
+    # we could also give color_func=image_colors directly in the constructor
+    axes[1].imshow(image, cmap=plt.cm.gray, interpolation="bilinear")
+
+    for ax in axes:
+        ax.set_axis_off()
+    st.pyplot()
