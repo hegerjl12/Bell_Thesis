@@ -10,6 +10,9 @@ st.set_page_config(
      layout="wide",
 )
 
+def set_image():
+     image = Image.open('image' + str(st.session_state.i) + '.jpg')
+     st.image(image, width=1024)
 
 st.title("Selina's Thesis")
 arr = np.arange(3)
@@ -31,13 +34,11 @@ if 'image_words' not in st.session_state:
 
 if st.session_state.i < 4:
 
-     image = Image.open('image' + str(st.session_state.i) + '.jpg')
-
-     st.image(image, width=1024)
+     set_image()
 
      st.write('Enter 3 words you feel:')
 
-     with st.form("Enter 3 words you feel: "):
+     with st.form('wordForm'):
           image_input = st.text_area('','', key=st.session_state.i)  
           submit = st.form_submit_button('Submit')
 
@@ -49,5 +50,5 @@ if st.session_state.i < 4:
 
           st.session_state.i = st.session_state.i + 1
 
-          image = Image.open('image' + str(st.session_state.i) + '.jpg')
+          set_image()
           
