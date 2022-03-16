@@ -19,7 +19,7 @@ def set_image():
      image = Image.open('image' + str(st.session_state.i) + '.jpg')
      with image_container:
           st.empty()
-          st.image(image, width=1024)
+          st.image(image, width=360)
 
 image_container = st.empty()
 image_input = st.empty()
@@ -66,6 +66,7 @@ if st.session_state.i < 4:
                     st.experimental_rerun()
 
 else:
+
      text = " ".join(st.session_state.image_words[0])
      word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
      fig = plt.imshow(word_cloud, interpolation='bilinear')
