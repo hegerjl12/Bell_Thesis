@@ -24,17 +24,11 @@ def set_image():
 image_container = st.empty()
 image_input = st.empty()
 
-#if 'df' not in st.session_state:
- #    st.session_state.df = pd.DataFrame(columns = ['Image1', 'Image2', 'Image3', 'Image4', 'Image5', 'Image6', 'Image7', 'Image8', 'Image9', 'Image10'])
-
 if 'image_order' not in st.session_state:
      st.session_state.image_order = [1, 2, 3]
 
 if 'i' not in st.session_state:
      st.session_state.i = 1
-
-#if 'next' not in st.session_state:
- #    st.session_state.next = 0
 
 if 'image_words' not in st.session_state:
      st.session_state.image_words = []
@@ -53,7 +47,7 @@ if st.session_state.i < 4:
           
           st.session_state.image_words.append(words)
 
-          st.write(st.session_state.image_words)
+          #st.write(st.session_state.image_words)
 
           st.session_state.i = st.session_state.i + 1
 
