@@ -4,7 +4,7 @@ from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
-from gsheetsdb import connect
+from shillelagh.backends.apsw.db import connect
 
 st.set_page_config(
      page_title="Bell Thesis",
