@@ -4,12 +4,27 @@ from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
+from gsheetsdb import connect
 
 st.set_page_config(
      page_title="Bell Thesis",
      page_icon="🔔",
      layout="wide",
 )
+
+# Create a connection object.
+conn = connect()
+
+# Perform SQL query on the Google Sheet.
+# Uses st.cache to only rerun when the query changes or after 10 min.
+@st.cache(ttl=600)
+def run_query(query):
+    rows = conn.execute(query, headers=1)
+    return rows
+
+sheet_url = st.secrets["public_gsheets_url"]
+rows = run_query(f'SELECT * FROM "{sheet_url}"')
+
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
