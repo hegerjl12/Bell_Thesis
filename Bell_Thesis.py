@@ -4,7 +4,7 @@ from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
-from gsheetsdb import connect
+from shillelagh import connect
 
 st.set_page_config(
      page_title="Bell Thesis",
@@ -23,21 +23,18 @@ def run_query(query):
     rows = rows.fetchall()
     return rows
 
-sheet_url = st.secrets["public_gsheets_url"]
-rows = run_query(f'SELECT * FROM "{sheet_url}"')
-
-for row in rows:
-     st.write(row)
-
-st.set_option('deprecation.showPyplotGlobalUse', False)
-
-st.title("Selina's Thesis")
-
 def set_image():
      image = Image.open('image' + str(st.session_state.i) + '.jpg')
      with image_container:
           st.empty()
           st.image(image, width=360)
+
+sheet_url = st.secrets["public_gsheets_url"]
+rows = run_query(f'SELECT * FROM "{sheet_url}"')
+
+st.set_option('deprecation.showPyplotGlobalUse', False)
+
+st.title("Selina's Thesis")
 
 image_container = st.empty()
 image_input = st.empty()
