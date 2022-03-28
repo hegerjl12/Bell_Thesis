@@ -20,7 +20,7 @@ conn = connect(":memory:")
 @st.cache(ttl=600)
 def run_query(query):
      cursor = conn.cursor()
-     return cursor.execute(str(query))
+     return cursor.execute(query)
     #rows = conn.execute(query, headers=1)
     #rows = rows.fetchall()
     #return rows
@@ -32,7 +32,7 @@ def set_image():
           st.image(image, width=360)
 
 sheet_url = st.secrets["public_gsheets_url"]
-rows = run_query("SELECT * FROM "+ sheet_url)
+rows = run_query('"SELECT * FROM '+ str(sheet_url) + '"')
 st.write(rows)
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
