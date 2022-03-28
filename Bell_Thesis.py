@@ -32,7 +32,7 @@ def set_image():
           st.image(image, width=360)
 
 sheet_url = st.secrets["public_gsheets_url"]
-st.write(sheet_url)
+st.write(str(sheet_url))
 #rows = run_query('SELECT * FROM '+ str(sheet_url))
 st.write(rows)
 st.set_option('deprecation.showPyplotGlobalUse', False)
