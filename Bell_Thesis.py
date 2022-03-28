@@ -4,7 +4,7 @@ from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
-from shillelagh.backends.apsw.db import connect
+from gsheetsdb import connect
 
 st.set_page_config(
      page_title="Bell Thesis",
@@ -13,17 +13,15 @@ st.set_page_config(
 )
 
 # Create a connection object.
-conn = connect(":memory:")
+conn = connect()
 
 # Perform SQL query on the Google Sheet.
 # Uses st.cache to only rerun when the query changes or after 10 min.
 @st.cache(ttl=600)
 def run_query(query):
-     row = conn.execute(query)
-     return row
-    #rows = conn.execute(query, headers=1)
-    #rows = rows.fetchall()
-    #return rows
+     rows = conn.execute(query, headers=1)
+     rows = rows.fetchall()
+     return rows
 
 def set_image():
      image = Image.open('image' + str(st.session_state.i) + '.jpg')
@@ -31,10 +29,10 @@ def set_image():
           st.empty()
           st.image(image, width=360)
 
-sheet_url = '"https://docs.google.com/spreadsheets/d/19dJTCDZkHLNrgt-Vx0SNXKrTSpl7cVbQzWXYO6ydRHQ/edit?usp=sharing"' #st.secrets["public_gsheets_url"]
-
-rows = run_query('SELECT * FROM ' + sheet_url)
+sheet_url = st.secrets["private_gsheets_url"]
+rows = run_query(f'SELECT * FROM "{sheet_url}"')
 st.write(rows)
+
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 st.title("Selina's Thesis")
