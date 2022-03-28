@@ -19,8 +19,8 @@ conn = connect(":memory:")
 # Uses st.cache to only rerun when the query changes or after 10 min.
 @st.cache(ttl=600)
 def run_query(query):
-     cursor = conn.cursor()
-     return cursor.execute(query)
+     row = conn.execute(query)
+     return row
     #rows = conn.execute(query, headers=1)
     #rows = rows.fetchall()
     #return rows
