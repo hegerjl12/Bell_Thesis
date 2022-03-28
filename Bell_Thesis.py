@@ -20,7 +20,7 @@ conn = connect(":memory:")
 @st.cache(ttl=600)
 def run_query(query):
      cursor = conn.cursor()
-     return cursor.execute(query)
+     return cursor.execute(str(query))
     #rows = conn.execute(query, headers=1)
     #rows = rows.fetchall()
     #return rows
