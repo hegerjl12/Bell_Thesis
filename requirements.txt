@@ -5,4 +5,4 @@ streamlit==1.7.0
 #streamlit-option-menu
 wordcloud
 matplotlib
-shillelagh
+gsheetsdb
