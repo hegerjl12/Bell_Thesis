@@ -19,23 +19,25 @@ conn = connect()
 # Uses st.cache to only rerun when the query changes or after 10 min.
 @st.cache(ttl=600)
 def run_query(query):
-     rows = conn.execute(query, headers=1)
-     rows = rows.fetchall()
-     return rows
+    rows = conn.execute(query, headers=1)
+    rows = rows.fetchall()
+    return rows
+
+sheet_url = st.secrets["public_gsheets_url"]
+rows = run_query(f'SELECT * FROM "{sheet_url}"')
+
+for row in rows:
+     st.write(row)
+
+st.set_option('deprecation.showPyplotGlobalUse', False)
+
+st.title("Selina's Thesis")
 
 def set_image():
      image = Image.open('image' + str(st.session_state.i) + '.jpg')
      with image_container:
           st.empty()
           st.image(image, width=360)
-
-sheet_url = st.secrets["private_gsheets_url"]
-rows = run_query(f'SELECT * FROM "{sheet_url}"')
-st.write(rows)
-
-st.set_option('deprecation.showPyplotGlobalUse', False)
-
-st.title("Selina's Thesis")
 
 image_container = st.empty()
 image_input = st.empty()
