@@ -31,9 +31,9 @@ def set_image():
           st.empty()
           st.image(image, width=360)
 
-sheet_url = "https://docs.google.com/spreadsheets/d/19dJTCDZkHLNrgt-Vx0SNXKrTSpl7cVbQzWXYO6ydRHQ/edit?usp=sharing" #st.secrets["public_gsheets_url"]
+sheet_url = '"https://docs.google.com/spreadsheets/d/19dJTCDZkHLNrgt-Vx0SNXKrTSpl7cVbQzWXYO6ydRHQ/edit?usp=sharing"' #st.secrets["public_gsheets_url"]
 
-rows = run_query('SELECT * FROM "https://docs.google.com/spreadsheets/d/19dJTCDZkHLNrgt-Vx0SNXKrTSpl7cVbQzWXYO6ydRHQ/edit?usp=sharing"')
+rows = run_query('SELECT * FROM ' + sheet_url)
 st.write(rows)
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
