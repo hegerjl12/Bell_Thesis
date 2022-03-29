@@ -90,9 +90,9 @@ else:
 
      res = Image1DB.fetch()
      all_items = res.items
-     st.dataframe(all_items)
+     st.write(all_items)
      
-     #text = " ".join(st.session_state.image_words[0])
+     text = " ".join(st.session_state.image_words[0])
      text = " ".join(all_items)
      word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
      fig = plt.imshow(word_cloud, interpolation='bilinear')
