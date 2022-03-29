@@ -97,6 +97,8 @@ else:
      for item in all_items:
           st.session_state.total_words.append(item.get('words'))
      
+     st.write(st.session_state.total_words)
+     
      #text = " ".join(st.session_state.image_words[0])
      text = " ".join(str(st.session_state.total_words))
      word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
