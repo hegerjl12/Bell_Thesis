@@ -48,8 +48,10 @@ if 'i' not in st.session_state:
 if 'image_words' not in st.session_state:
      st.session_state.image_words = []
 
-if 'total_words' not in st.session_state:
-     st.session_state.total_words = []
+#if 'total_words' not in st.session_state:
+ #    st.session_state.total_words = []
+
+total_words = []
 
 if st.session_state.i < 4:
 
@@ -95,12 +97,12 @@ else:
      res = Image1DB.fetch()
      all_items = res.items
      for item in all_items:
-          st.session_state.total_words.append(item.get('words'))
+          total_words.append(item.get('words'))
      
-     st.write(st.session_state.total_words)
+     st.write(total_words)
      
      #text = " ".join(st.session_state.image_words[0])
-     text = " ".join(st.session_state.total_words)
+     text = " ".join(total_words)
      word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
      fig = plt.imshow(word_cloud, interpolation='bilinear')
      plt.axis("off")
