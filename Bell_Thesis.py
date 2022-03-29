@@ -90,7 +90,7 @@ else:
 
      res = Image1DB.fetch()
      all_items = res.items
-     st.write(all_items[0].get('words'))
+     st.write(all_items[:].get('words'))
      
      text = " ".join(st.session_state.image_words[0])
      text = " ".join(all_items)
