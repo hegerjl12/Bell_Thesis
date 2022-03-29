@@ -41,11 +41,11 @@ creds = None
      #with open('token.pickle', 'wb') as token:
       #    pickle.dump(creds, token)
 
-service = build('sheets', 'v4', credentials=creds)
+#service = build('sheets', 'v4', credentials=creds)
 
-result = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range=range_name).execute()
-rows = result.get('values', [])
-print('{0} rows retrieved.'.format(len(rows)))
+#result = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range=range_name).execute()
+#rows = result.get('values', [])
+#print('{0} rows retrieved.'.format(len(rows)))
 
 # Create a connection object.
 conn = connect()
