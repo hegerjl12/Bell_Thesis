@@ -77,7 +77,7 @@ if st.session_state.i < 4:
 else:
 
     # text = " ".join(st.session_state.image_words[0])
-     text = " ".join(WordDB.get("1"))
+     text = " ".join(WordDB.fetch({"1"})
      word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
      fig = plt.imshow(word_cloud, interpolation='bilinear')
      plt.axis("off")
