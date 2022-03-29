@@ -6,3 +6,4 @@ streamlit==1.7.0
 wordcloud
 matplotlib
 gsheetsdb
+click==8.0
