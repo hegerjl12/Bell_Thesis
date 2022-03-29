@@ -5,6 +5,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 from gsheetsdb import connect
+from google.auth.transport.requests import Request
+from google.oauth2.credentials import Credentials
+from google_auth_oauthlib.flow import InstalledAppFlow
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
+
+
 
 st.set_page_config(
      page_title="Bell Thesis",
