@@ -19,8 +19,6 @@ st.set_page_config(
      layout="wide",
 )
 
-service = build('sheets', 'v4', credentials=creds)
-
 creds = None
     # The file token.json stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
@@ -38,7 +36,7 @@ if os.path.exists('token.json'):
      with open('token.json', 'w') as token:
           token.write(creds.to_json())
 
-
+service = build('sheets', 'v4', credentials=creds)
 
 # Create a connection object.
 conn = connect()
