@@ -19,6 +19,10 @@ st.set_page_config(
      layout="wide",
 )
 
+SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
+spreadsheet_id = '19dJTCDZkHLNrgt-Vx0SNXKrTSpl7cVbQzWXYO6ydRHQ'
+range_name = 'A1:AA1000'
+
 creds = None
     # The file token.json stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
@@ -37,6 +41,10 @@ if os.path.exists('token.json'):
           token.write(creds.to_json())
 
 service = build('sheets', 'v4', credentials=creds)
+
+result = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range=range_name).execute()
+rows = result.get('values', [])
+print('{0} rows retrieved.'.format(len(rows)))
 
 # Create a connection object.
 conn = connect()
