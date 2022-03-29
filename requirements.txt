@@ -10,6 +10,7 @@ click==8.0
 google-api-python-client
 google-auth-httplib2
 google-auth-oauthlib
+pickle
 
 #google.auth.transport.requests import Request
 #google.oauth2.credentials import Credentials
