@@ -7,3 +7,12 @@ wordcloud
 matplotlib
 gsheetsdb
 click==8.0
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+
+#google.auth.transport.requests import Request
+#google.oauth2.credentials import Credentials
+#google_auth_oauthlib.flow import InstalledAppFlow
+#googleapiclient.discovery import build
+#googleapiclient.errors import HttpError
