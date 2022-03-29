@@ -4,12 +4,18 @@ from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
+from deta import Deta
+
 
 st.set_page_config(
      page_title="Bell Thesis",
      page_icon="🔔",
      layout="wide",
 )
+
+deta = Deta(st.secrets["deta_key"])
+WordDB = deta.Base(words)
+
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
