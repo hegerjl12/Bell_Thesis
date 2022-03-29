@@ -78,7 +78,7 @@ else:
 
      res = WordDB.fetch()
      all_items = res.items
-     st.write(all_items)
+     st.dataframe(all_items)
      text = " ".join(st.session_state.image_words[0])
     # text = " ".join(WordDB.fetch({"1":}))
      word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
