@@ -58,7 +58,7 @@ if st.session_state.i < 4:
           image_input.empty()  
           
           st.session_state.image_words.append(words)
-          WordsDB.put({str(i): words})
+          WordDB.put({str(i): words})
 
           st.write(st.session_state.image_words)
 
