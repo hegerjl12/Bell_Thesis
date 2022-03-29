@@ -14,7 +14,9 @@ st.set_page_config(
 )
 
 deta = Deta(st.secrets["deta_key"])
-WordDB = deta.Base("words")
+Image1DB = deta.Base("image1db")
+Image2DB = deta.Base("image2db")
+Image3DB = deta.Base("image3db")
 
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -58,9 +60,19 @@ if st.session_state.i < 4:
           image_input.empty()  
           
           st.session_state.image_words.append(words)
-          WordDB.put({str(st.session_state.i): words[0]})
-          WordDB.put({str(st.session_state.i): words[1]})
-          WordDB.put({str(st.session_state.i): words[2]})
+          
+          if st.session_state.i == 1:
+               Image1DB.put({"words": words[0]})
+               Image1DB.put({"words": words[1]})
+               Image1DB.put({"words": words[2]})
+          if st.session_state.i == 2:
+               Image2DB.put({"words": words[0]})
+               Image2DB.put({"words": words[1]})
+               Image2DB.put({"words": words[2]})
+          if st.session_state.i == 3:
+               Image3DB.put({"words": words[0]})
+               Image3DB.put({"words": words[1]})
+               Image3DB.put({"words": words[2]})
 
           st.write(st.session_state.image_words)
 
@@ -76,9 +88,10 @@ if st.session_state.i < 4:
 
 else:
 
-     res = WordDB.fetch()
+     res = Image1DB.fetch()
      all_items = res.items
      st.dataframe(all_items)
+     
      text = " ".join(st.session_state.image_words[0])
     # text = " ".join(WordDB.fetch({"1":}))
      word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
