@@ -28,9 +28,9 @@ creds = None
     # The file token.json stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
     # time.
-if os.path.exists('token.pickle'):
-     with open('token.pickle', 'rb') as token:
-            creds = pickle.load(token)
+#if os.path.exists('token.pickle'):
+ #    with open('token.pickle', 'rb') as token:
+#            creds = pickle.load(token)
 #if not creds or not creds.valid:
  #    if creds and creds.expired and creds.refresh_token:
   #        creds.refresh(Request())
