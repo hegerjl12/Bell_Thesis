@@ -14,7 +14,7 @@ st.set_page_config(
 )
 
 deta = Deta(st.secrets["deta_key"])
-WordDB = deta.Base(words)
+WordDB = deta.Base("words")
 
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
