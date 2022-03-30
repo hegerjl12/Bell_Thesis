@@ -25,9 +25,6 @@ with st.spinner("Connecting to database..."):
      Image4DB = deta.Base("image4db")
      Image5DB = deta.Base("image5db")
 
-
-st.set_option('deprecation.showPyplotGlobalUse', False) #only for wordcloud
-
 # set selected image to the image container
 def set_image():
      if st.session_state.images_left:
@@ -78,6 +75,7 @@ if st.session_state.images_left:
 
           # remove last image
           st.session_state.images_left.remove(st.session_state.i)
+          st.write(st.session_state.image_left)
 
 else:
      st.write("Thank you!")
