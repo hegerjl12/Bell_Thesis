@@ -71,8 +71,8 @@ if len(st.session_state.images_left) > 0:
 
 
      submit = form.form_submit_button('Submit')
-     st.write(st.session_state.text1)
-     st.stop()
+
+     st.write(st.session_state.text1+"?")
 
                # once form is submitted
      #if submit:
