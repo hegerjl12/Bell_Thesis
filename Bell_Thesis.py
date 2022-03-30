@@ -62,21 +62,29 @@ if st.session_state.images_left:
 
      # once form is submitted
      if submit:
-          
+          text_split = []
           # commit input to database
           if st.session_state.i == 1:
                text_split = text1.split()
                Image1DB.put({"words": text_split[0]})
-               Image1DB.put({"words": text2})
-               Image1DB.put({"words": text3})
+               text_split = text2.split()
+               Image1DB.put({"words": text_split[0]})
+               text_split = text3.split()
+               Image1DB.put({"words": text_split[0]})
           if st.session_state.i == 2:
-               Image2DB.put({"words": text1})
-               Image2DB.put({"words": text2})
-               Image2DB.put({"words": text3})
+               text_split = text1.split()
+               Image2DB.put({"words": text_split[0]})
+               text_split = text2.split()
+               Image2DB.put({"words": text_split[0]})
+               text_split = text3.split()
+               Image2DB.put({"words": text_split[0]})
           if st.session_state.i == 3:
-               Image3DB.put({"words": text1})
-               Image3DB.put({"words": text2})
-               Image3DB.put({"words": text3})
+               text_split = text1.split()
+               Image3DB.put({"words": text_split[0]})
+               text_split = text2.split()
+               Image3DB.put({"words": text_split[0]})
+               text_split = text3.split()
+               Image3DB.put({"words": text_split[0]})
 
           # remove last image
           st.session_state.images_left.remove(st.session_state.i)
