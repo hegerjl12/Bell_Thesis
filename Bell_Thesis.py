@@ -34,6 +34,7 @@ def set_image():
 
 # create image container and text container
 image_container = st.empty()
+st.write("Enter 3 words you the image makes you feel: ")
 image_input1 = st.empty()
 image_input2 = st.empty()
 image_input3 = st.empty()
@@ -52,8 +53,6 @@ if 'i' not in st.session_state:
 total_words = []
 
 if st.session_state.i < 4:
-
-     st.write("Enter 3 words you the image makes you feel: ")
      
      with st.form('wordForm'):
           set_image() 
