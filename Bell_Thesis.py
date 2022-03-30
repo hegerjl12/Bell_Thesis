@@ -64,7 +64,7 @@ if st.session_state.images_left:
      if submit:
           # commit input to database
           if st.session_state.i == 1:
-               if len(text1) > 0 and text1.isspace():
+               if len(text1) > 0 and not text1.isspace():
                     Image1DB.put({"words": text1.spit().pop(0)})
                Image1DB.put({"words": text2})
                Image1DB.put({"words": text3})
