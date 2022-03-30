@@ -53,9 +53,8 @@ if 'i' not in st.session_state:
 # loop to print images and collect input
 if len(st.session_state.images_left) > 0:
 
-     
+     # set image and form for input
      with st.form('wordForm', clear_on_submit=True):
-          # set image and form for input
           set_image() 
           st.write("Enter 3 words you the image makes you feel: ")
           text1 = st.text_input('','', key=str(st.session_state.i)+"1")
@@ -69,7 +68,7 @@ if len(st.session_state.images_left) > 0:
                st.write(text1)
                # commit input to database
                if st.session_state.i == 1:
-                    Image1DB.put({"words": str(text1)})
+                    Image1DB.put({"words": text1})
                     Image1DB.put({"words": text2})
                     Image1DB.put({"words": text3})
                if st.session_state.i == 2:
