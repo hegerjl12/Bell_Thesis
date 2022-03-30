@@ -46,9 +46,6 @@ if 'i' not in st.session_state:
 #if 'image_words' not in st.session_state:
  #    st.session_state.image_words = []
 
-# volital variables
-total_words = []
-
 if st.session_state.i < 4:
 
      set_image() 
@@ -96,7 +93,7 @@ else:
      for item in all_items:
           total_words.append(item.get('words'))
      
-     
+     total_words = []
      text = " ".join(total_words)
      word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
      fig = plt.imshow(word_cloud, interpolation='bilinear')
@@ -108,6 +105,7 @@ else:
      for item in all_items:
           total_words.append(item.get('words'))
 
+     total_words = []
      text = " ".join(total_words)
      word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
      fig = plt.imshow(word_cloud, interpolation='bilinear')
@@ -119,6 +117,7 @@ else:
      for item in all_items:
           total_words.append(item.get('words'))
 
+     total_words = []
      text = " ".join(total_words)
      word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
      fig = plt.imshow(word_cloud, interpolation='bilinear')
