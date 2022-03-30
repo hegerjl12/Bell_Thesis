@@ -1,9 +1,5 @@
 pandas
 numpy
 streamlit==1.7.0
-#openpyxl
-#streamlit-option-menu
-wordcloud
-matplotlib
 click==8.0
 deta
