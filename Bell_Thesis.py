@@ -51,9 +51,10 @@ if 'i' not in st.session_state:
 total_words = []
 
 if st.session_state.i < 4:
-     
+
+     set_image() 
      with st.form('wordForm', clear_on_submit=True):
-          set_image() 
+          
           text = image_input.text_area('','', key=str(st.session_state.i))
 
           submit = st.form_submit_button('Submit')
