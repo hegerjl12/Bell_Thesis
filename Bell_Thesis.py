@@ -30,7 +30,7 @@ def set_image():
      image = Image.open('image' + str(st.session_state.i) + '.jpg')
      with image_container:
           st.empty()
-          st.image(image, width=360)
+          st.image(image, width=360, use_column_width='auto')
 
 # create image container and text container
 image_container = st.empty()
