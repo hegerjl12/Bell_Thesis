@@ -27,7 +27,7 @@ with st.spinner("Connecting to database..."):
 
 # set selected image to the image container
 def set_image():
-     if st.session_state.images_left:
+     if len(st.session_state.images_left) > 0:
           st.session_state.i = random.choice(st.session_state.images_left)
           st.write(st.session_state.i)
           image = Image.open('image' + str(st.session_state.i) + '.jpg')
@@ -57,9 +57,9 @@ if len(st.session_state.images_left) > 0:
      with st.form('wordForm', clear_on_submit=True):
           set_image() 
           st.write("Enter 3 words you the image makes you feel: ")
-          text1 = st.text_input('','', key=st.session_state.i+10)
-          text2 = st.text_input('','', key=st.session_state.i+20)
-          text3 = st.text_input('','', key=st.session_state.i+30)
+          text1 = st.text_input('','')
+          text2 = st.text_input('','')
+          text3 = st.text_input('','')
 
           submit = st.form_submit_button('Submit')
 
