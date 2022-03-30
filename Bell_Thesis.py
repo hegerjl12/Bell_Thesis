@@ -16,8 +16,8 @@ st.set_page_config(
 
 st.title("Selina's Thesis")
 
+# connect to databases
 with st.spinner("Connecting to database..."):
-     # connect to databases
      deta = Deta(st.secrets["deta_key"])
      Image1DB = deta.Base("image1db")
      Image2DB = deta.Base("image2db")
