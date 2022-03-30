@@ -65,12 +65,12 @@ if st.session_state.images_left:
           text_split = []
           # commit input to database
           if st.session_state.i == 1:
-               text_split = text1.split()
-               Image1DB.put({"words": text_split[0]})
+               text_split = text1.split()[0]
+               Image1DB.put({"words": text_split})
                text_split = text2.split()
-               Image1DB.put({"words": text_split[0]})
+               Image1DB.put({"words": text_split})
                text_split = text3.split()
-               Image1DB.put({"words": text_split[0]})
+               Image1DB.put({"words": text_split})
           if st.session_state.i == 2:
                text_split = text1.split()
                Image2DB.put({"words": text_split[0]})
