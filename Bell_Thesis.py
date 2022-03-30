@@ -41,8 +41,11 @@ if 'image_order' not in st.session_state:
 if 'i' not in st.session_state:
      st.session_state.i = 1
 
+
+# loop to print images and collect input
 if st.session_state.i < 4:
 
+     # set image and form for input
      set_image() 
      with st.form('wordForm', clear_on_submit=True):
           st.write("Enter 3 words you the image makes you feel: ")
@@ -52,8 +55,10 @@ if st.session_state.i < 4:
 
           submit = st.form_submit_button('Submit')
 
+     # once form is submitted
      if submit:
           
+          # commit input to database
           if st.session_state.i == 1:
                Image1DB.put({"words": text1})
                Image1DB.put({"words": text2})
@@ -67,11 +72,13 @@ if st.session_state.i < 4:
                Image3DB.put({"words": text2})
                Image3DB.put({"words": text3})
 
-
+          # increment count
           st.session_state.i = st.session_state.i + 1
 
+          # reset image
           if st.session_state.i < 4:   
                set_image()
+          # or clear screen and prep for wordcloud
           else:
                with image_container:
                     st.empty()
