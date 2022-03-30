@@ -80,13 +80,13 @@ if st.session_state.i < 4:
         #  st.session_state.i = st.session_state.i + 1
 
           # reset image
-          if st.session_state.i < 4:   
-               set_image()
+      #    if st.session_state.i < 4:   
+      #         set_image()
           # or clear screen and prep for wordcloud
-          else:
-               with image_container:
-                    st.empty()
-                    st.experimental_rerun()
+      #    else:
+       #        with image_container:
+        #            st.empty()
+         #           st.experimental_rerun()
 
 else:
      st.write("Thank you!")
