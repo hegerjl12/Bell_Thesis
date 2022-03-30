@@ -28,11 +28,12 @@ st.set_option('deprecation.showPyplotGlobalUse', False) #only for wordcloud
 
 # set selected image to the image container
 def set_image():
-     st.session_state.i = random.choice(st.session_state.images_left)
-     image = Image.open('image' + str(st.session_state.i) + '.jpg')
-     with image_container.container():
-          st.image(image, width=360, use_column_width='auto')
-     st.session_state.images_left.remove(st.session_state.i)
+     if st.session_state.images_left:
+          st.session_state.i = random.choice(st.session_state.images_left)
+          image = Image.open('image' + str(st.session_state.i) + '.jpg')
+          with image_container.container():
+               st.image(image, width=360, use_column_width='auto')
+          st.session_state.images_left.remove(st.session_state.i)
      
 # create image container and text container
 image_container = st.empty()
