@@ -2,8 +2,6 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 import numpy as np
-import matplotlib.pyplot as plt #only for wordcloud
-from wordcloud import WordCloud #only for wordcloud
 from deta import Deta
 import random
 
@@ -16,29 +14,6 @@ st.set_page_config(
 
 st.title("Selina's Thesis")
 
-# connect to databases
-with st.spinner("Connecting to database..."):
-     deta = Deta(st.secrets["deta_key"])
-     Image1DB = deta.Base("image1db")
-     Image2DB = deta.Base("image2db")
-     Image3DB = deta.Base("image3db")
-     Image4DB = deta.Base("image4db")
-     Image5DB = deta.Base("image5db")
-
-# set selected image to the image container
-def set_image():
-     if len(st.session_state.images_left) > 0:
-          st.session_state.i = random.choice(st.session_state.images_left)
-          st.write(st.session_state.i)
-          image = Image.open('image' + str(st.session_state.i) + '.jpg')
-          with image_container.container():
-               st.image(image, width=360, use_column_width='auto')
-
-          # remove last image
-               st.session_state.images_left.remove(st.session_state.i)
-               st.write(st.session_state.images_left)
-     
-     
 # create image container and text container
 image_container = st.empty()
 
@@ -49,13 +24,35 @@ if 'images_left' not in st.session_state:
 if 'i' not in st.session_state:
      st.session_state.i = 1
 
+# set selected image to the image container
+def set_image():
+     if len(st.session_state.images_left) > 0:
+          st.session_state.i = random.choice(st.session_state.images_left)
+          image = Image.open('image' + str(st.session_state.i) + '.jpg')
+          with image_container.container():
+               st.image(image, width=360, use_column_width='auto')
+
+          # remove last image
+               st.session_state.images_left.remove(st.session_state.i)
+
+
+
+
+# connect to databases
+with st.spinner("Connecting to database..."):
+     deta = Deta(st.secrets["deta_key"])
+     Image1DB = deta.Base("image1db")
+     Image2DB = deta.Base("image2db")
+     Image3DB = deta.Base("image3db")
+     Image4DB = deta.Base("image4db")
+     Image5DB = deta.Base("image5db")
 
 # loop to print images and collect input
 if len(st.session_state.images_left) > 0:
 
      st.write("Enter 3 words you the image makes you feel: ")
      set_image() 
-     # set image and form for input
+
      form = st.form('wordForm')
      text1 = form.text_input('','', key=st.session_state.i+10)
      text2 = form.text_input('','', key=st.session_state.i+20)
