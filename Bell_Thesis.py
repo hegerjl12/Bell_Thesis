@@ -61,7 +61,7 @@ if st.session_state.images_left:
           if submit:
                # commit input to database
                if st.session_state.i == 1:
-                    Image1DB.put({"words": text1})
+                    Image1DB.put({"words": str(text1)})
                     Image1DB.put({"words": text2})
                     Image1DB.put({"words": text3})
                if st.session_state.i == 2:
