@@ -54,27 +54,29 @@ if st.session_state.i < 4:
      set_image() 
      with st.form('wordForm', clear_on_submit=True):
           st.write("Enter 3 words you the image makes you feel: ")
-          text = st.text_area('','', key=str(st.session_state.i))
+          text1 = st.text_input('','', key=str(st.session_state.i)+"1")
+          text2 = st.text_input('','', key=str(st.session_state.i)+"2")
+          text3 = st.text_input('','', key=str(st.session_state.i)+"3")
 
           submit = st.form_submit_button('Submit')
 
      if submit:
-          words = text.split() 
+         # words = text.split() 
           
       #    st.session_state.image_words.append(words)
           
           if st.session_state.i == 1:
-               Image1DB.put({"words": words[0]})
-               Image1DB.put({"words": words[1]})
-               Image1DB.put({"words": words[2]})
+               Image1DB.put({"words": text1})
+               Image1DB.put({"words": text2})
+               Image1DB.put({"words": text3})
           if st.session_state.i == 2:
-               Image2DB.put({"words": words[0]})
-               Image2DB.put({"words": words[1]})
-               Image2DB.put({"words": words[2]})
+               Image2DB.put({"words": text1})
+               Image2DB.put({"words": text2})
+               Image2DB.put({"words": text3})
           if st.session_state.i == 3:
-               Image3DB.put({"words": words[0]})
-               Image3DB.put({"words": words[1]})
-               Image3DB.put({"words": words[2]})
+               Image3DB.put({"words": text1})
+               Image3DB.put({"words": text2})
+               Image3DB.put({"words": text3})
 
 
           st.session_state.i = st.session_state.i + 1
