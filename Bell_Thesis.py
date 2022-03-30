@@ -89,36 +89,36 @@ if st.session_state.i < 4:
 
 else:
 
+     total_words = []
      res = Image1DB.fetch()
      all_items = res.items
      for item in all_items:
           total_words.append(item.get('words'))
      
-     total_words = []
      text = " ".join(total_words)
      word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
      fig = plt.imshow(word_cloud, interpolation='bilinear')
      plt.axis("off")
      st.pyplot(plt.show())
 
+     total_words = []
      res = Image2DB.fetch()
      all_items = res.items
      for item in all_items:
           total_words.append(item.get('words'))
 
-     total_words = []
      text = " ".join(total_words)
      word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
      fig = plt.imshow(word_cloud, interpolation='bilinear')
      plt.axis("off")
      st.pyplot(plt.show())
      
+     total_words = []
      res = Image3DB.fetch()
      all_items = res.items
      for item in all_items:
           total_words.append(item.get('words'))
 
-     total_words = []
      text = " ".join(total_words)
      word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
      fig = plt.imshow(word_cloud, interpolation='bilinear')
