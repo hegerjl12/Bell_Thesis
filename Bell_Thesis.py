@@ -88,7 +88,7 @@ if len(st.session_state.images_left) > 0:
      st.write("Enter 3 words you the image makes you feel: ")
      set_image() 
 
-     form = st.form('wordForm')
+     form = st.form(key='wordForm'+str(st.session_state.i))
      st.session_state.text1 = form.text_input('','', key=st.session_state.i+10)
      st.session_state.text2 = form.text_input('','', key=st.session_state.i+20)
      st.session_state.text3 = form.text_input('','', key=st.session_state.i+30)
