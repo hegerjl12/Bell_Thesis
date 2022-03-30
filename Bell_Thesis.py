@@ -53,9 +53,10 @@ total_words = []
 
 if st.session_state.i < 4:
 
+     st.write("Enter 3 words you the image makes you feel: ")
+     
      with st.form('wordForm'):
           set_image() 
-          st.write("Enter 3 words you the image makes you feel: ")
           text1 = image_input1.text_input('','', key=str(st.session_state.i)+"1")
           text2 = image_input2.text_input('', '', key=str(st.session_state.i)+"2")
           text3 = image_input3.text_input('', '', key=str(st.session_state.i)+"3")
