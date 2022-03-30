@@ -31,7 +31,7 @@ def set_image():
      with image_container:
           st.empty()
           st.image(image, width=360)
-          st.write("Enter 3 words you the image makes you feel: ")
+          #st.write("Enter 3 words you the image makes you feel: ")
 
 # create image container and text container
 image_container = st.empty()
