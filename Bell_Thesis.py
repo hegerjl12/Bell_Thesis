@@ -76,7 +76,7 @@ if st.session_state.i < 4:
                Image3DB.put({"words": text3})
 
           # increment count
-          st.session_state.i = st.session_state.i + 1
+        #  st.session_state.i = st.session_state.i + 1
 
           # reset image
           if st.session_state.i < 4:   
@@ -88,39 +88,40 @@ if st.session_state.i < 4:
                     st.experimental_rerun()
 
 else:
+     st.write(Thank you!)
 
-     total_words = []
-     res = Image1DB.fetch()
-     all_items = res.items
-     for item in all_items:
-          total_words.append(item.get('words'))
+ #    total_words = []
+ #    res = Image1DB.fetch()
+ #    all_items = res.items
+#     for item in all_items:
+#          total_words.append(item.get('words'))
+#     
+#     text = " ".join(total_words)
+#     word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
+#     fig = plt.imshow(word_cloud, interpolation='bilinear')
+#     plt.axis("off")
+#     st.pyplot(plt.show())
+
+ #    total_words = []
+ #    res = Image2DB.fetch()
+ #    all_items = res.items
+ #    for item in all_items:
+ #         total_words.append(item.get('words'))
+
+  #   text = " ".join(total_words)
+  #   word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
+  #   fig = plt.imshow(word_cloud, interpolation='bilinear')
+  #   plt.axis("off")
+  #   st.pyplot(plt.show())
      
-     text = " ".join(total_words)
-     word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
-     fig = plt.imshow(word_cloud, interpolation='bilinear')
-     plt.axis("off")
-     st.pyplot(plt.show())
+   #  total_words = []
+   #  res = Image3DB.fetch()
+   #  all_items = res.items
+   #  for item in all_items:
+   #       total_words.append(item.get('words'))
 
-     total_words = []
-     res = Image2DB.fetch()
-     all_items = res.items
-     for item in all_items:
-          total_words.append(item.get('words'))
-
-     text = " ".join(total_words)
-     word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
-     fig = plt.imshow(word_cloud, interpolation='bilinear')
-     plt.axis("off")
-     st.pyplot(plt.show())
-     
-     total_words = []
-     res = Image3DB.fetch()
-     all_items = res.items
-     for item in all_items:
-          total_words.append(item.get('words'))
-
-     text = " ".join(total_words)
-     word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
-     fig = plt.imshow(word_cloud, interpolation='bilinear')
-     plt.axis("off")
-     st.pyplot(plt.show())
+  #   text = " ".join(total_words)
+  #   word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
+  #   fig = plt.imshow(word_cloud, interpolation='bilinear')
+  #   plt.axis("off")
+  #   st.pyplot(plt.show())
