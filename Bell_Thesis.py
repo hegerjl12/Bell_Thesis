@@ -82,6 +82,7 @@ if st.session_state.i < 4:
           st.session_state.i = st.session_state.i + 1
 
           if st.session_state.i < 4:   
+               image_container = st.empty()
                set_image()
           else:
                with image_container:
