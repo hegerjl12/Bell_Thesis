@@ -48,9 +48,10 @@ if 'i' not in st.session_state:
 # loop to print images and collect input
 if len(st.session_state.images_left) > 0:
 
-     # set image and form for input
-     set_image() 
+     
      with st.form('wordForm', clear_on_submit=True):
+          # set image and form for input
+          set_image() 
           st.write("Enter 3 words you the image makes you feel: ")
           text1 = st.text_input('','', key=str(st.session_state.i)+"1")
           text2 = st.text_input('','', key=str(st.session_state.i)+"2")
