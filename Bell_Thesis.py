@@ -56,6 +56,20 @@ def connect_databases():
           Image4DB = deta.Base("image4db")
           Image5DB = deta.Base("image5db")
 
+def commit_to_database():
+     if st.session_state.i == 1:
+          Image1DB.put({"words": st.session_state.text1})
+          Image1DB.put({"words": st.session_state.text2})
+          Image1DB.put({"words": st.session_state.text3})
+     if st.session_state.i == 2:
+          Image2DB.put({"words": st.session_state.text1})
+          Image2DB.put({"words": st.session_state.text2})
+          Image2DB.put({"words": st.session_state.text3})
+     if st.session_state.i == 3:
+          Image3DB.put({"words": st.session_state.text1})
+          Image3DB.put({"words": st.session_state.text2})
+          Image3DB.put({"words": st.session_state.text3})
+
 connect_databases()
 
 # loop to print images and collect input
@@ -70,25 +84,9 @@ if len(st.session_state.images_left) > 0:
      st.session_state.text3 = form.text_input('','', key=st.session_state.i+30)
 
 
-     submit = form.form_submit_button('Submit')
+     submit = form.form_submit_button('Submit', on_click=commit_to_database)
 
      st.write(st.session_state.text1+"?")
-
-               # once form is submitted
-     #if submit:
-          # commit input to database
-          #if st.session_state.i == 1:
-           #    Image1DB.put({"words": st.session_state.text1})
-            #   Image1DB.put({"words": st.session_state.text2})
-             #  Image1DB.put({"words": st.session_state.text3})
-          #if st.session_state.i == 2:
-           #    Image2DB.put({"words": st.session_state.text1})
-            #   Image2DB.put({"words": st.session_state.text2})
-             #  Image2DB.put({"words": st.session_state.text3})
-          #if st.session_state.i == 3:
-           #    Image3DB.put({"words": st.session_state.text1})
-            #   Image3DB.put({"words": st.session_state.text2})
-             #  Image3DB.put({"words": st.session_state.text3})
 
 else:
      st.write("Thank you!")
