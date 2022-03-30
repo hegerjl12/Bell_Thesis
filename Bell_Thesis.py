@@ -33,8 +33,6 @@ def set_image():
 
 # create image container and text container
 image_container = st.empty()
-#st.write("Enter 3 words you the image makes you feel: ")
-#image_input = st.container()
 
 # create state variables 
 if 'image_order' not in st.session_state:
@@ -42,9 +40,6 @@ if 'image_order' not in st.session_state:
 
 if 'i' not in st.session_state:
      st.session_state.i = 1
-
-#if 'image_words' not in st.session_state:
- #    st.session_state.image_words = []
 
 if st.session_state.i < 4:
 
@@ -58,9 +53,6 @@ if st.session_state.i < 4:
           submit = st.form_submit_button('Submit')
 
      if submit:
-         # words = text.split() 
-          
-      #    st.session_state.image_words.append(words)
           
           if st.session_state.i == 1:
                Image1DB.put({"words": text1})
@@ -78,10 +70,9 @@ if st.session_state.i < 4:
 
           st.session_state.i = st.session_state.i + 1
 
-          if st.session_state.i < 4:   
-             #  image_container.empty()
-               set_image()
-          else:
+       #   if st.session_state.i < 4:   
+       #        set_image()
+          if st.session_state.i >= 4:
                with image_container:
                     st.empty()
                     st.experimental_rerun()
