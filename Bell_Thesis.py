@@ -45,7 +45,7 @@ if 'i' not in st.session_state:
 
 
 # loop to print images and collect input
-if st.session_state.images_left:
+if len(st.session_state.images_left) > 0:
 
      # set image and form for input
      set_image() 
