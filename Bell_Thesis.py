@@ -33,6 +33,11 @@ def set_image():
           image = Image.open('image' + str(st.session_state.i) + '.jpg')
           with image_container.container():
                st.image(image, width=360, use_column_width='auto')
+
+          # remove last image
+               st.session_state.images_left.remove(st.session_state.i)
+               st.write(st.session_state.images_left)
+     
      
 # create image container and text container
 image_container = st.empty()
@@ -75,10 +80,6 @@ if len(st.session_state.images_left) > 0:
                     Image3DB.put({"words": text1})
                     Image3DB.put({"words": text2})
                     Image3DB.put({"words": text3})
-
-               # remove last image
-               st.session_state.images_left.remove(st.session_state.i)
-               st.write(st.session_state.images_left)
 
 else:
      st.write("Thank you!")
