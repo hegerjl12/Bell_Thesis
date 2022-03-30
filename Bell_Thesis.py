@@ -54,16 +54,16 @@ if 'i' not in st.session_state:
 if len(st.session_state.images_left) > 0:
 
      # set image and form for input
-     with st.form('wordForm', clear_on_submit=True):
-          set_image() 
-          image_input = st.container()
-          st.write("Enter 3 words you the image makes you feel: ")
-          text1 = image_input.text_input('','', key=st.session_state.i+10)
-          text2 = image_input.text_input('','', key=st.session_state.i+20)
-          text3 = image_input.text_input('','', key=st.session_state.i+30)
+     form = st.form('wordForm', clear_on_submit=True)
+     set_image() 
+     st.write("Enter 3 words you the image makes you feel: ")
+     text1 = form.text_input('','', key=st.session_state.i+10)
+     text2 = form.text_input('','', key=st.session_state.i+20)
+     text3 = form.text_input('','', key=st.session_state.i+30)
 
-          submit = st.form_submit_button('Submit')
-          st.write(text1)
+     submit = form.form_submit_button('Submit')
+     st.write(text1)
+     
      # once form is submitted
      if submit:
           st.write(text1)
