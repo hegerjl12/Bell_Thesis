@@ -60,14 +60,26 @@ with st.spinner("Connecting to database..."):
 
 
 # loop to print images and collect input
-if len(st.session_state.images_left) > 2:
+if len(st.session_state.images_left) > 0:
 
      st.write("Enter 3 words you the image makes you feel: ")
      set_image() 
 
-          # once form is submitted
-     if not st.session_state.text1.isspace():
-          st.write(st.session_state.text1)
+     st.stop()
+
+
+     form = st.form('wordForm')
+     st.session_state.text1 = form.text_input('','', key=st.session_state.i+10)
+     st.session_state.text2 = form.text_input('','', key=st.session_state.i+20)
+     st.session_state.text3 = form.text_input('','', key=st.session_state.i+30)
+
+
+     submit = form.form_submit_button('Submit')
+     st.write(st.session_state.text1)
+     st.stop()
+
+               # once form is submitted
+     #if submit:
           # commit input to database
           #if st.session_state.i == 1:
            #    Image1DB.put({"words": st.session_state.text1})
@@ -81,17 +93,6 @@ if len(st.session_state.images_left) > 2:
            #    Image3DB.put({"words": st.session_state.text1})
             #   Image3DB.put({"words": st.session_state.text2})
              #  Image3DB.put({"words": st.session_state.text3})
-
-
-     form = st.form('wordForm')
-     st.session_state.text1 = form.text_input('','', key=st.session_state.i+10)
-     st.session_state.text2 = form.text_input('','', key=st.session_state.i+20)
-     st.session_state.text3 = form.text_input('','', key=st.session_state.i+30)
-
-
-     submit = form.form_submit_button('Submit')
-     st.write(st.session_state.text1)
-     st.stop()
 
 else:
      st.write("Thank you!")
