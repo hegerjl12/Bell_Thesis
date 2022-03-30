@@ -26,7 +26,6 @@ with st.spinner("Connecting to database..."):
 st.set_option('deprecation.showPyplotGlobalUse', False) #only for wordcloud
 
 # set selected image to the image container
-@st.cache
 def set_image():
      image = Image.open('image' + str(st.session_state.i) + '.jpg')
      with image_container:
@@ -55,7 +54,7 @@ total_words = []
 
 if st.session_state.i < 4:
      
-     with st.form('wordForm'):
+     with st.form('wordForm', clear_on_submit=True):
           set_image() 
           text1 = image_input1.text_input('','', key=str(st.session_state.i)+"1")
           text2 = image_input2.text_input('', '', key=str(st.session_state.i)+"2")
@@ -87,9 +86,6 @@ if st.session_state.i < 4:
 
           if st.session_state.i < 4:   
                set_image()
-               text1 = image_input.text_input('Enter 3 words you the image makes you feel: ','', key=str(st.session_state.i)+"1")
-               text2 = image_input.text_input('', '', key=str(st.session_state.i)+"2")
-               text3 = image_input.text_input('', '', key=str(st.session_state.i)+"3")
           else:
                with image_container:
                     st.empty()
