@@ -33,7 +33,6 @@ def set_image():
           image = Image.open('image' + str(st.session_state.i) + '.jpg')
           with image_container.container():
                st.image(image, width=360, use_column_width='auto')
-          st.session_state.images_left.remove(st.session_state.i)
      
 # create image container and text container
 image_container = st.empty()
@@ -47,7 +46,7 @@ if 'i' not in st.session_state:
 
 
 # loop to print images and collect input
-if st.session_state.i < 4:
+if st.session_state.images_left:
 
      # set image and form for input
      set_image() 
@@ -76,6 +75,7 @@ if st.session_state.i < 4:
                Image3DB.put({"words": text2})
                Image3DB.put({"words": text3})
 
+          st.session_state.images_left.remove(st.session_state.i)
           # increment count
         #  st.session_state.i = st.session_state.i + 1
 
