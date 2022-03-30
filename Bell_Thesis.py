@@ -35,9 +35,7 @@ def set_image():
 # create image container and text container
 image_container = st.empty()
 st.write("Enter 3 words you the image makes you feel: ")
-image_input1 = st.empty()
-image_input2 = st.empty()
-image_input3 = st.empty()
+image_input = st.empty()
 
 # create state variables 
 if 'image_order' not in st.session_state:
@@ -56,15 +54,13 @@ if st.session_state.i < 4:
      
      with st.form('wordForm', clear_on_submit=True):
           set_image() 
-          text1 = image_input1.text_input('','', key=str(st.session_state.i)+"1")
-          text2 = image_input2.text_input('', '', key=str(st.session_state.i)+"2")
-          text3 = image_input3.text_input('', '', key=str(st.session_state.i)+"3")
+          text = image_input.text_area('','', key=str(st.session_state.i))
 
           submit = st.form_submit_button('Submit')
 
      if submit:
-          words = [text1, text2, text3]
-          image_input.empty()  
+          words = text.split()
+        #  image_input.empty()  
           
       #    st.session_state.image_words.append(words)
           
