@@ -99,22 +99,30 @@ else:
      for item in all_items:
           total_words.append(item.get('words'))
      
-     st.write(total_words)
      
-     #text = " ".join(st.session_state.image_words[0])
      text = " ".join(total_words)
      word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
      fig = plt.imshow(word_cloud, interpolation='bilinear')
      plt.axis("off")
      st.pyplot(plt.show())
 
-     text = " ".join(st.session_state.image_words[1])
+     res = Image2DB.fetch()
+     all_items = res.items
+     for item in all_items:
+          total_words.append(item.get('words'))
+
+     text = " ".join(total_words)
      word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
      fig = plt.imshow(word_cloud, interpolation='bilinear')
      plt.axis("off")
      st.pyplot(plt.show())
+     
+     res = Image3DB.fetch()
+     all_items = res.items
+     for item in all_items:
+          total_words.append(item.get('words'))
 
-     text = " ".join(st.session_state.image_words[2])
+     text = " ".join(total_words)
      word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
      fig = plt.imshow(word_cloud, interpolation='bilinear')
      plt.axis("off")
