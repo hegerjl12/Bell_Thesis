@@ -55,7 +55,7 @@ with st.spinner("Connecting to database..."):
           Image5DB = deta.Base("image5db")
 
 # loop to print images and collect input
-if len(st.session_state.images_left) > 0:
+if len(st.session_state.images_left) > 2:
 
      st.write("Enter 3 words you the image makes you feel: ")
      set_image() 
@@ -83,3 +83,4 @@ if len(st.session_state.images_left) > 0:
 
 else:
      st.write("Thank you!")
+     st.write(text1 + text2 + text3)
