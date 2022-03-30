@@ -33,7 +33,7 @@ def set_image():
           st.image(image, width=360, use_column_width='auto')
 
 # create image container and text container
-image_container = st.empty()
+image_container = st.container()
 st.write("Enter 3 words you the image makes you feel: ")
 image_input = st.empty()
 
