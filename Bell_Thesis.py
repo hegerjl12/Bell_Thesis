@@ -66,31 +66,31 @@ if len(st.session_state.images_left) > 0:
      set_image() 
 
           # once form is submitted
-     if not text1.isspace() and not text2.isspace() and not text3.isspace():
-          st.write(text1)
+     if not st.session_state.text1.isspace() and not st.session_state.text2.isspace() and not st.session_state.text3.isspace():
+          st.write(st.session_state.text1)
           # commit input to database
           if st.session_state.i == 1:
-               Image1DB.put({"words": text1})
-               Image1DB.put({"words": text2})
-               Image1DB.put({"words": text3})
+               Image1DB.put({"words": st.session_state.text1})
+               Image1DB.put({"words": st.session_state.text2})
+               Image1DB.put({"words": st.session_state.text3})
           if st.session_state.i == 2:
-               Image2DB.put({"words": text1})
-               Image2DB.put({"words": text2})
-               Image2DB.put({"words": text3})
+               Image2DB.put({"words": st.session_state.text1})
+               Image2DB.put({"words": st.session_state.text2})
+               Image2DB.put({"words": st.session_state.text3})
           if st.session_state.i == 3:
-               Image3DB.put({"words": text1})
-               Image3DB.put({"words": text2})
-               Image3DB.put({"words": text3})
+               Image3DB.put({"words": st.session_state.text1})
+               Image3DB.put({"words": st.session_state.text2})
+               Image3DB.put({"words": st.session_state.text3})
 
 
      form = st.form('wordForm')
-     text1 = form.text_input('','', key=st.session_state.i+10)
-     text2 = form.text_input('','', key=st.session_state.i+20)
-     text3 = form.text_input('','', key=st.session_state.i+30)
+     st.session_state.text1 = form.text_input('','', key=st.session_state.i+10)
+     st.session_state.text2 = form.text_input('','', key=st.session_state.i+20)
+     st.session_state.text3 = form.text_input('','', key=st.session_state.i+30)
 
 
      submit = form.form_submit_button('Submit')
-     st.write(text1)
+     st.write(st.session_state.text1)
      st.stop()
 
 else:
