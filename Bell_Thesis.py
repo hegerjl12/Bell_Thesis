@@ -80,9 +80,9 @@ if st.session_state.i < 4:
 
           st.session_state.i = st.session_state.i + 1
 
-        #  if st.session_state.i < 4:   
-            #   set_image()
-          if st.session_state.i >= 4:
+          if st.session_state.i < 4:   
+               set_image()
+          else:
                with image_container:
                     st.empty()
                     st.experimental_rerun()
