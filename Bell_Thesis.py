@@ -66,21 +66,21 @@ if len(st.session_state.images_left) > 0:
      set_image() 
 
           # once form is submitted
-     if not st.session_state.text1.isspace() and not st.session_state.text2.isspace() and not st.session_state.text3.isspace():
+     if not st.session_state.text1.isspace():
           st.write(st.session_state.text1)
           # commit input to database
-          if st.session_state.i == 1:
-               Image1DB.put({"words": st.session_state.text1})
-               Image1DB.put({"words": st.session_state.text2})
-               Image1DB.put({"words": st.session_state.text3})
-          if st.session_state.i == 2:
-               Image2DB.put({"words": st.session_state.text1})
-               Image2DB.put({"words": st.session_state.text2})
-               Image2DB.put({"words": st.session_state.text3})
-          if st.session_state.i == 3:
-               Image3DB.put({"words": st.session_state.text1})
-               Image3DB.put({"words": st.session_state.text2})
-               Image3DB.put({"words": st.session_state.text3})
+          #if st.session_state.i == 1:
+           #    Image1DB.put({"words": st.session_state.text1})
+            #   Image1DB.put({"words": st.session_state.text2})
+             #  Image1DB.put({"words": st.session_state.text3})
+          #if st.session_state.i == 2:
+           #    Image2DB.put({"words": st.session_state.text1})
+            #   Image2DB.put({"words": st.session_state.text2})
+             #  Image2DB.put({"words": st.session_state.text3})
+          #if st.session_state.i == 3:
+           #    Image3DB.put({"words": st.session_state.text1})
+            #   Image3DB.put({"words": st.session_state.text2})
+             #  Image3DB.put({"words": st.session_state.text3})
 
 
      form = st.form('wordForm')
