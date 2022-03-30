@@ -2,60 +2,68 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 import numpy as np
-import matplotlib.pyplot as plt
-from wordcloud import WordCloud
+import matplotlib.pyplot as plt #only for wordcloud
+from wordcloud import WordCloud #only for wordcloud
 from deta import Deta
 
-
+# set page config details
 st.set_page_config(
      page_title="Bell Thesis",
      page_icon="🔔",
      layout="wide",
 )
 
-deta = Deta(st.secrets["deta_key"])
-Image1DB = deta.Base("image1db")
-Image2DB = deta.Base("image2db")
-Image3DB = deta.Base("image3db")
-
-
-st.set_option('deprecation.showPyplotGlobalUse', False)
-
 st.title("Selina's Thesis")
 
+with st.spinner("Connecting to database..."):
+     # connect to databases
+     deta = Deta(st.secrets["deta_key"])
+     Image1DB = deta.Base("image1db")
+     Image2DB = deta.Base("image2db")
+     Image3DB = deta.Base("image3db")
+
+
+st.set_option('deprecation.showPyplotGlobalUse', False) #only for wordcloud
+
+# set selected image to the image container
 def set_image():
      image = Image.open('image' + str(st.session_state.i) + '.jpg')
      with image_container:
           st.empty()
           st.image(image, width=360)
 
+# create image container and text container
 image_container = st.empty()
 image_input = st.empty()
 
+# create state variables 
 if 'image_order' not in st.session_state:
      st.session_state.image_order = [1, 2, 3]
 
 if 'i' not in st.session_state:
      st.session_state.i = 1
 
-if 'image_words' not in st.session_state:
-     st.session_state.image_words = []
+#if 'image_words' not in st.session_state:
+ #    st.session_state.image_words = []
 
+# volital variables
 total_words = []
 
 if st.session_state.i < 4:
 
-     set_image()
-
      with st.form('wordForm'):
-          text = image_input.text_area('Enter 3 words you feel: ','', key=st.session_state.i)  
+          set_image() 
+          text1 = image_input.text_input('Enter 3 words you the image makes you feel: ','', key=str(st.session_state.i)+"1")
+          text2 = image_input.text_input('', '', key=str(st.session_state.i)+"2")
+          text3 = image_input.text_input('', '', key=str(st.session_state.i)+"3")
+
           submit = st.form_submit_button('Submit')
 
      if submit:
-          words = text.split()
+          words = [text1, text2, text3]
           image_input.empty()  
           
-          st.session_state.image_words.append(words)
+      #    st.session_state.image_words.append(words)
           
           if st.session_state.i == 1:
                Image1DB.put({"words": words[0]})
@@ -70,13 +78,14 @@ if st.session_state.i < 4:
                Image3DB.put({"words": words[1]})
                Image3DB.put({"words": words[2]})
 
-          st.write(st.session_state.image_words)
 
           st.session_state.i = st.session_state.i + 1
 
           if st.session_state.i < 4:   
                set_image()
-               text = image_input.text_area('Enter 3 words you feel: ','', key=st.session_state.i)
+               text1 = image_input.text_input('Enter 3 words you the image makes you feel: ','', key=str(st.session_state.i)+"1")
+               text2 = image_input.text_input('', '', key=str(st.session_state.i)+"2")
+               text3 = image_input.text_input('', '', key=str(st.session_state.i)+"3")
           else:
                with image_container:
                     st.empty()
