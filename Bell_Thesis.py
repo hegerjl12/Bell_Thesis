@@ -88,7 +88,7 @@ if st.session_state.i < 4:
                     st.experimental_rerun()
 
 else:
-     st.write(Thank you!)
+     st.write("Thank you!")
 
  #    total_words = []
  #    res = Image1DB.fetch()
