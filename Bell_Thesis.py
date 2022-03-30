@@ -65,7 +65,8 @@ if st.session_state.images_left:
           
           # commit input to database
           if st.session_state.i == 1:
-               Image1DB.put({"words": text1})
+               text_split = text1.split()
+               Image1DB.put({"words": text_split[0]})
                Image1DB.put({"words": text2})
                Image1DB.put({"words": text3})
           if st.session_state.i == 2:
@@ -77,54 +78,8 @@ if st.session_state.images_left:
                Image3DB.put({"words": text2})
                Image3DB.put({"words": text3})
 
+          # remove last image
           st.session_state.images_left.remove(st.session_state.i)
-          # increment count
-        #  st.session_state.i = st.session_state.i + 1
-
-          # reset image
-      #    if st.session_state.i < 4:   
-      #         set_image()
-          # or clear screen and prep for wordcloud
-      #    else:
-       #        with image_container:
-        #            st.empty()
-         #           st.experimental_rerun()
 
 else:
      st.write("Thank you!")
-
- #    total_words = []
- #    res = Image1DB.fetch()
- #    all_items = res.items
-#     for item in all_items:
-#          total_words.append(item.get('words'))
-#     
-#     text = " ".join(total_words)
-#     word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
-#     fig = plt.imshow(word_cloud, interpolation='bilinear')
-#     plt.axis("off")
-#     st.pyplot(plt.show())
-
- #    total_words = []
- #    res = Image2DB.fetch()
- #    all_items = res.items
- #    for item in all_items:
- #         total_words.append(item.get('words'))
-
-  #   text = " ".join(total_words)
-  #   word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
-  #   fig = plt.imshow(word_cloud, interpolation='bilinear')
-  #   plt.axis("off")
-  #   st.pyplot(plt.show())
-     
-   #  total_words = []
-   #  res = Image3DB.fetch()
-   #  all_items = res.items
-   #  for item in all_items:
-   #       total_words.append(item.get('words'))
-
-  #   text = " ".join(total_words)
-  #   word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
-  #   fig = plt.imshow(word_cloud, interpolation='bilinear')
-  #   plt.axis("off")
-  #   st.pyplot(plt.show())
