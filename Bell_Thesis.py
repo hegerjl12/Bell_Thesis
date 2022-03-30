@@ -60,7 +60,7 @@ with st.spinner("Connecting to database..."):
 
 
 # loop to print images and collect input
-if len(st.session_state.images_left) > 0:
+if len(st.session_state.images_left) > 2:
 
      st.write("Enter 3 words you the image makes you feel: ")
      set_image() 
