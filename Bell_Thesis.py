@@ -75,7 +75,7 @@ if st.session_state.images_left:
 
           # remove last image
           st.session_state.images_left.remove(st.session_state.i)
-          st.write(st.session_state.image_left)
+          st.write(st.session_state.images_left)
 
 else:
      st.write("Thank you!")
