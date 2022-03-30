@@ -48,7 +48,7 @@ def set_image():
 
 with st.spinner("Connecting to database..."):
           deta = Deta(st.secrets["deta_key"])
-          Image1DB = deta.Base("image1db")
+          Image1DB = deta.Base("image1dbnew")
           Image2DB = deta.Base("image2db")
           Image3DB = deta.Base("image3db")
           Image4DB = deta.Base("image4db")
