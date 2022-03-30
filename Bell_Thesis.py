@@ -22,6 +22,8 @@ with st.spinner("Connecting to database..."):
      Image1DB = deta.Base("image1db")
      Image2DB = deta.Base("image2db")
      Image3DB = deta.Base("image3db")
+     Image4DB = deta.Base("image4db")
+     Image5DB = deta.Base("image5db")
 
 
 st.set_option('deprecation.showPyplotGlobalUse', False) #only for wordcloud
