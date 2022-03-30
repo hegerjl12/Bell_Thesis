@@ -29,6 +29,7 @@ with st.spinner("Connecting to database..."):
 def set_image():
      if st.session_state.images_left:
           st.session_state.i = random.choice(st.session_state.images_left)
+          st.write(st.session_state.i)
           image = Image.open('image' + str(st.session_state.i) + '.jpg')
           with image_container.container():
                st.image(image, width=360, use_column_width='auto')
@@ -59,6 +60,7 @@ if st.session_state.images_left:
 
           # once form is submitted
           if submit:
+               st.write(text1)
                # commit input to database
                if st.session_state.i == 1:
                     Image1DB.put({"words": str(text1)})
