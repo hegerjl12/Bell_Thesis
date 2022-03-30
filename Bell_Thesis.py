@@ -29,13 +29,12 @@ st.set_option('deprecation.showPyplotGlobalUse', False) #only for wordcloud
 def set_image():
      image = Image.open('image' + str(st.session_state.i) + '.jpg')
      with image_container.container():
-        #  st.empty()
           st.image(image, width=360, use_column_width='auto')
 
 # create image container and text container
 image_container = st.empty()
 st.write("Enter 3 words you the image makes you feel: ")
-image_input = st.empty()
+image_input = st.container()
 
 # create state variables 
 if 'image_order' not in st.session_state:
