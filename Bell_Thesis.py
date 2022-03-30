@@ -46,7 +46,6 @@ def set_image():
           # remove last image
                st.session_state.images_left.remove(st.session_state.i)
 
-@st.cache
 def connect_databases():
      # connect to databases
      with st.spinner("Connecting to database..."):
