@@ -45,7 +45,7 @@ if 'i' not in st.session_state:
 
 
 # loop to print images and collect input
-if len(st.session_state.images_left) > 0:
+if st.session_state.images_left:
 
      # set image and form for input
      set_image() 
@@ -57,25 +57,25 @@ if len(st.session_state.images_left) > 0:
 
           submit = st.form_submit_button('Submit')
 
-     # once form is submitted
-     if submit:
-          # commit input to database
-          if st.session_state.i == 1:
-               Image1DB.put({"words": text1})
-               Image1DB.put({"words": text2})
-               Image1DB.put({"words": text3})
-          if st.session_state.i == 2:
-               Image2DB.put({"words": text1})
-               Image2DB.put({"words": text2})
-               Image2DB.put({"words": text3})
-          if st.session_state.i == 3:
-               Image3DB.put({"words": text1})
-               Image3DB.put({"words": text2})
-               Image3DB.put({"words": text3})
+          # once form is submitted
+          if submit:
+               # commit input to database
+               if st.session_state.i == 1:
+                    Image1DB.put({"words": text1})
+                    Image1DB.put({"words": text2})
+                    Image1DB.put({"words": text3})
+               if st.session_state.i == 2:
+                    Image2DB.put({"words": text1})
+                    Image2DB.put({"words": text2})
+                    Image2DB.put({"words": text3})
+               if st.session_state.i == 3:
+                    Image3DB.put({"words": text1})
+                    Image3DB.put({"words": text2})
+                    Image3DB.put({"words": text3})
 
-          # remove last image
-          st.session_state.images_left.remove(st.session_state.i)
-          st.write(st.session_state.images_left)
+               # remove last image
+               st.session_state.images_left.remove(st.session_state.i)
+               st.write(st.session_state.images_left)
 
 else:
      st.write("Thank you!")
