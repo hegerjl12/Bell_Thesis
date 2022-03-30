@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt #only for wordcloud
 from wordcloud import WordCloud #only for wordcloud
 from deta import Deta
+import random
 
 # set page config details
 st.set_page_config(
