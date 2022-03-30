@@ -70,6 +70,8 @@ def commit_to_database():
           Image3DB.put({"words": st.session_state.text2})
           Image3DB.put({"words": st.session_state.text3})
 
+     st.write(st.session_state.text1+"?")
+
 connect_databases()
 
 with st.spinner("Connecting to database..."):
@@ -93,8 +95,6 @@ if len(st.session_state.images_left) > 0:
 
 
      submit = form.form_submit_button('Submit', on_click=commit_to_database)
-
-     st.write(st.session_state.text1+"?")
 
 else:
      st.write("Thank you!")
