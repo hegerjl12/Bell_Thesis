@@ -58,7 +58,7 @@ if len(st.session_state.images_left) > 0:
           set_image() 
           st.write("Enter 3 words you the image makes you feel: ")
           text1 = st.text_input('','', key=st.session_state.i+10)
-          text2 = st.text_input('','', key=st.session_state.i)+20)
+          text2 = st.text_input('','', key=st.session_state.i+20)
           text3 = st.text_input('','', key=st.session_state.i+30)
 
           submit = st.form_submit_button('Submit')
