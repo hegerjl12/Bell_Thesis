@@ -59,8 +59,7 @@ if st.session_state.i < 4:
           submit = st.form_submit_button('Submit')
 
      if submit:
-          words = text.split()
-          image_input.empty()  
+          words = text.split() 
           
       #    st.session_state.image_words.append(words)
           
