@@ -26,6 +26,7 @@ with st.spinner("Connecting to database..."):
 st.set_option('deprecation.showPyplotGlobalUse', False) #only for wordcloud
 
 # set selected image to the image container
+@st.cache
 def set_image():
      image = Image.open('image' + str(st.session_state.i) + '.jpg')
      with image_container:
