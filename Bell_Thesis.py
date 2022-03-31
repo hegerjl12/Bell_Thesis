@@ -69,6 +69,7 @@ if len(st.session_state.images_left) > 0:
           submit = st.form_submit_button('Submit')
 
      if submit:
+          st.write(len(text1))
           if st.session_state.i == 1:
                st.write(text1)
 
