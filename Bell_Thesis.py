@@ -49,11 +49,11 @@ def set_image():
 
 with st.spinner("Connecting to database..."):
           deta = Deta(st.secrets["deta_key"])
-         # Image1DB = deta.Base("testdb1")
+          Image1DB = deta.Base("testdb1")
           Image2DB = deta.Base("testdb2")
           Image3DB = deta.Base("testdb3")
-          Image4DB = deta.Base("image4db")
-          Image5DB = deta.Base("image5db")
+         # Image4DB = deta.Base("image4db")
+        #  Image5DB = deta.Base("image5db")
 
 # loop to print images and collect input
 if len(st.session_state.images_left) > 0:
