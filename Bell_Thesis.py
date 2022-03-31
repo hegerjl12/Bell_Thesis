@@ -4,6 +4,7 @@ from PIL import Image
 import numpy as np
 from deta import Deta
 import random
+import time
 
 # set page config details
 st.set_page_config(
@@ -47,6 +48,7 @@ def set_image():
                st.session_state.images_left.remove(st.session_state.i)
 
 with st.spinner("Connecting to database..."):
+          time.sleep(5)
           deta = Deta(st.secrets["deta_key"])
           Image1DB = deta.Base("testdb1")
           Image2DB = deta.Base("testdb2")
