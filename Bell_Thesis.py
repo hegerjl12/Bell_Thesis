@@ -61,26 +61,25 @@ if len(st.session_state.images_left) > 2:
      set_image() 
 
      with st.form(key='wordForm'+str(st.session_state.i)):
-          st.session_state.text1 = st.text_input('','', key=st.session_state.i+10)
-          st.session_state.text2 = st.text_input('','', key=st.session_state.i+20)
-          st.session_state.text3 = st.text_input('','', key=st.session_state.i+30)
+          text1 = st.text_input('','', key=st.session_state.i+10)
+          text2 = st.text_input('','', key=st.session_state.i+20)
+          text3 = st.text_input('','', key=st.session_state.i+30)
 
           submit = st.form_submit_button('Submit')
 
      if submit:
           if st.session_state.i == 1:
-               Image1DB.put({"words": st.session_state.text1})
-               Image1DB.put({"words": st.session_state.text2})
-               Image1DB.put({"words": st.session_state.text3})
+               Image1DB.put({"words": text1})
+               Image1DB.put({"words": text2})
+               Image1DB.put({"words": text3})
           if st.session_state.i == 2:
-               Image2DB.put({"words": st.session_state.text1})
-               Image2DB.put({"words": st.session_state.text2})
-               Image2DB.put({"words": st.session_state.text3})
+               Image2DB.put({"words": text1})
+               Image2DB.put({"words": text2})
+               Image2DB.put({"words": text3})
           if st.session_state.i == 3:
-               Image3DB.put({"words": st.session_state.text1})
-               Image3DB.put({"words": st.session_state.text2})
-               Image3DB.put({"words": st.session_state.text3})
+               Image3DB.put({"words": text1})
+               Image3DB.put({"words": text2})
+               Image3DB.put({"words": text3})
 
 else:
      st.write("Thank you!")
-     st.write(st.session_state.text1 + st.session_state.text2 + st.session_state.text3)
