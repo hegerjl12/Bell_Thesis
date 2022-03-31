@@ -48,16 +48,15 @@ def set_image():
                st.session_state.images_left.remove(st.session_state.i)
 
 with st.spinner("Connecting to database..."):
-          time.sleep(5)
           deta = Deta(st.secrets["deta_key"])
-          Image1DB = deta.Base("testdb1")
+         # Image1DB = deta.Base("testdb1")
           Image2DB = deta.Base("testdb2")
           Image3DB = deta.Base("testdb3")
           Image4DB = deta.Base("image4db")
           Image5DB = deta.Base("image5db")
 
 # loop to print images and collect input
-if len(st.session_state.images_left) > 2:
+if len(st.session_state.images_left) > 0:
 
      st.write("Enter 3 words you the image makes you feel: ")
      set_image() 
