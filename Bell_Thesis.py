@@ -47,23 +47,23 @@ if st.session_state.i < 4:
           text = st.text_area('Enter 3 words you feel: ','', key=st.session_state.i)  
           submit = st.form_submit_button('Submit')
 
-     if submit:
-          words = text.split()
+ #    if submit:
+  #        words = text.split()
           #image_input.empty()  
           
-          st.session_state.image_words.append(words)
+  #        st.session_state.image_words.append(words)
 
-          st.write(st.session_state.image_words)
+  #        st.write(st.session_state.image_words)
 
-          st.session_state.i = st.session_state.i + 1
+ #         st.session_state.i = st.session_state.i + 1
 
-          if st.session_state.i < 4:   
-               set_image()
-               text = st.text_area('Enter 3 words you feel: ','', key=st.session_state.i)
-          else:
-               with image_container:
-                    st.empty()
-                    st.experimental_rerun()
+  #        if st.session_state.i < 4:   
+  #             set_image()
+  #             text = st.text_area('Enter 3 words you feel: ','', key=st.session_state.i)
+  #        else:
+  #             with image_container:
+   #                 st.empty()
+   #                 st.experimental_rerun()
 
 else:
 
