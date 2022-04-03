@@ -74,7 +74,7 @@ def commit_wordsFinal(text1, text2, text3):
           Image1DB.put({"words": text1})
           Image1DB.put({"words": text2})
           Image1DB.put({"words": text3})
-     if st.session_state.last_image[-11] == 2:
+     if st.session_state.last_image[-1] == 2:
           Image2DB.put({"words": text1})
           Image2DB.put({"words": text2})
           Image2DB.put({"words": text3})
