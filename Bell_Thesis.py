@@ -50,17 +50,17 @@ def set_image():
                st.session_state.last_image.append(st.session_state.i)
                st.session_state.images_left.remove(st.session_state.i)
 
-def commit_words(text1, text2, text3, image):
+def commit_words(text1, text2, text3):
 
-     if image == 1:
+     if st.session_state.last_image[-2] == 1:
           Image1DB.put({"words": text1})
           Image1DB.put({"words": text2})
           Image1DB.put({"words": text3})
-     if image == 2:
+     if st.session_state.last_image[-2] == 2:
           Image2DB.put({"words": text1})
           Image2DB.put({"words": text2})
           Image2DB.put({"words": text3})
-     if image == 3:
+     if st.session_state.last_image[-2] == 3:
           Image3DB.put({"words": text1})
           Image3DB.put({"words": text2})
           Image3DB.put({"words": text3})
@@ -91,7 +91,7 @@ if len(st.session_state.images_left) > 0:
           submitted = st.form_submit_button('Submit')
 
      if submitted:
-          commit_words(text1, text2, text3, st.session_state.i)
+          commit_words(text1, text2, text3)
          
 else:
      st.write("Thank you!")
