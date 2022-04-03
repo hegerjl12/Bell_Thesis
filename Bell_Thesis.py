@@ -79,14 +79,17 @@ if len(st.session_state.images_left) > 0:
      if submit:
 
           if st.session_state.i == 1:
+               st.write(text1)
              #  Image1DB.put({"words": text1})
               # Image1DB.put({"words": text2})
               # Image1DB.put({"words": text3})
           if st.session_state.i == 2:
+               st.write(text1)
             #   Image2DB.put({"words": text1})
              #  Image2DB.put({"words": text2})
              #  Image2DB.put({"words": text3})
           if st.session_state.i == 3:
+               st.write(text1)
              #  Image3DB.put({"words": text1})
              #  Image3DB.put({"words": text2})
             #   Image3DB.put({"words": text3})
