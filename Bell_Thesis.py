@@ -90,10 +90,11 @@ if len(st.session_state.images_left) > 0:
           st.write("did this happen?1")
 
      if submit:
-          commit_words(text1, text2, text3)
+          #commit_words(text1, text2, text3)
           st.write("did this happen?2")
           if st.session_state.i == 1:
                Image1DB.put({"words": text1})
+               Image1DB.put({"words": "hello"})
                Image1DB.put({"words": text2})
                Image1DB.put({"words": text3})
           if st.session_state.i == 2:
