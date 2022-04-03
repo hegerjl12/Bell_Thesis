@@ -68,6 +68,21 @@ def commit_words(text1, text2, text3):
           Image3DB.put({"words": text2})
           Image3DB.put({"words": text3})
 
+def commit_wordsFinal(text1, text2, text3):
+
+     if st.session_state.last_image[-1] == 1:
+          Image1DB.put({"words": text1})
+          Image1DB.put({"words": text2})
+          Image1DB.put({"words": text3})
+     if st.session_state.last_image[-11] == 2:
+          Image2DB.put({"words": text1})
+          Image2DB.put({"words": text2})
+          Image2DB.put({"words": text3})
+     if st.session_state.last_image[-1] == 3:
+          Image3DB.put({"words": text1})
+          Image3DB.put({"words": text2})
+          Image3DB.put({"words": text3})
+
      
 with st.spinner("Connecting to database..."):
           deta = Deta(st.secrets["deta_key"])
@@ -97,5 +112,5 @@ if len(st.session_state.images_left) > 0:
           commit_words(st.session_state.text1, st.session_state.text2, st.session_state.text3)
          
 else:
-     commit_words(st.session_state.text1, st.session_state.text2, st.session_state.text3)
+     commit_wordsFinal(st.session_state.text1, st.session_state.text2, st.session_state.text3)
      st.write("Thank you!")
