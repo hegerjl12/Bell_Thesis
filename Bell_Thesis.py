@@ -35,7 +35,6 @@ if 'text3' not in st.session_state:
      st.session_state.text3 = ""
 
 
-
 # set selected image to the image container
 def set_image():
      if len(st.session_state.images_left) > 0:
@@ -47,20 +46,6 @@ def set_image():
           # remove last image
                st.session_state.images_left.remove(st.session_state.i)
 
-def commit_words(text1, text2, text3):
-     if st.session_state.i == 1:
-          Image1DB.put({"words": text1})
-          Image1DB.put({"words": text2})
-          Image1DB.put({"words": text3})
-     if st.session_state.i == 2:
-          Image2DB.put({"words": text1})
-          Image2DB.put({"words": text2})
-          Image2DB.put({"words": text3})
-     if st.session_state.i == 3:
-          Image3DB.put({"words": text1})
-          Image3DB.put({"words": text2})
-          Image3DB.put({"words": text3})
-
      
 with st.spinner("Connecting to database..."):
           deta = Deta(st.secrets["deta_key"])
@@ -70,20 +55,43 @@ with st.spinner("Connecting to database..."):
           Image4DB = deta.Base("image4db")
           Image5DB = deta.Base("image5db")
 
+if st.session_state.text1 != ""
+     if st.session_state.i == 1:
+                    Image1DB.put({"words": text1})
+     if st.session_state.i == 2:
+                    Image2DB.put({"words": text1})
+     if st.session_state.i == 3:
+                    Image3DB.put({"words": text1})
+
+if st.session_state.text2 != ""
+     if st.session_state.i == 1:
+                    Image1DB.put({"words": text2})
+     if st.session_state.i == 2:
+                    Image2DB.put({"words": text2})
+     if st.session_state.i == 3:
+                    Image3DB.put({"words": text2})
+
+if st.session_state.text3 != ""
+     if st.session_state.i == 3:
+                    Image1DB.put({"words": text3})
+     if st.session_state.i == 2:
+                    Image2DB.put({"words": text3})
+     if st.session_state.i == 3:
+                    Image3DB.put({"words": text3})
+
+
 
 # loop to print images and collect input
 if len(st.session_state.images_left) > 0:
 
      st.write("Enter 3 words you the image makes you feel: ")
      set_image() 
-     text1 = ""
-     text2 = ""
-     text3 = ""
+     
      
      with st.form(key='wordForm'+str(st.session_state.i)):
-          text1 = st.text_input(label='', key=st.session_state.i+10, type="default")
-          text2 = st.text_input(label='', key=st.session_state.i+20, type="default")
-          text3 = st.text_input(label='', key=st.session_state.i+30, type="default")
+          st.session_state.text1 = st.text_input(label='', key=st.session_state.i+10, type="default")
+          st.session_state.text2 = st.text_input(label='', key=st.session_state.i+20, type="default")
+          st.session_state.text3 = st.text_input(label='', key=st.session_state.i+30, type="default")
 
           submit = st.form_submit_button('Submit')
 
