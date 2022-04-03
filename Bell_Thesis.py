@@ -40,9 +40,13 @@ if 'text3' not in st.session_state:
 if 'submitted' not in st.session_state:
      st.session_state.submitted = False
 
+if 'count' not in st.session_state:
+     st.session_state.count = 0
+
 
 # set selected image to the image container
 def set_image():
+     st.session_state.count = st.session_state.count + 1
      if len(st.session_state.images_left) > 0:
           st.session_state.i = random.choice(st.session_state.images_left)
           image = Image.open('image' + str(st.session_state.i) + '.jpg')
@@ -112,7 +116,7 @@ with st.form('entries', clear_on_submit=True):
      st.session_state.submitted = st.form_submit_button('Submit')
 
 if st.session_state.submitted:
-     if len(st.session_state.images_left) > 0:
+     if len(st.session_state.count) < 4:
           commit_words(st.session_state.text1, st.session_state.text2, st.session_state.text3)
      else:
           commit_wordsFinal(st.session_state.text1, st.session_state.text2, st.session_state.text3)
