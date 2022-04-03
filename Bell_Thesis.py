@@ -113,7 +113,7 @@ with st.form('entries', clear_on_submit=True):
 
 if st.session_state.submitted:
      if len(st.session_state.images_left) > 0:
-          commit_words(t.session_state.text1, st.session_state.text2, st.session_state.text3)
+          commit_words(st.session_state.text1, st.session_state.text2, st.session_state.text3)
      else:
           commit_wordsFinal(st.session_state.text1, st.session_state.text2, st.session_state.text3)
           st.write("Thank you!")
