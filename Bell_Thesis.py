@@ -4,7 +4,6 @@ from PIL import Image
 import numpy as np
 from deta import Deta
 import random
-import time
 
 # set page config details
 st.set_page_config(
@@ -90,12 +89,12 @@ if len(st.session_state.images_left) > 0:
      set_image() 
      
      
-     with st.form(key='wordForm'+str(st.session_state.i)):
+     with st.form(key='wordForm'+str(st.session_state.i), clear_on_submit=False):
           st.session_state.text1 = st.text_input(label='', key=st.session_state.i+10, type="default")
           st.session_state.text2 = st.text_input(label='', key=st.session_state.i+20, type="default")
           st.session_state.text3 = st.text_input(label='', key=st.session_state.i+30, type="default")
 
-     if st.form_submit_button('Submit'):
+          submit = st.form_submit_button('Submit')
           #commit_words(text1, text2, text3)
           st.write("did this happen?2")
           if st.session_state.i == 1:
@@ -111,25 +110,24 @@ if len(st.session_state.images_left) > 0:
                Image3DB.put({"words": text1})
                Image3DB.put({"words": text2})
                Image3DB.put({"words": text3})
-     submit = False
-     st.write("did this happen?1")
+          st.write("did this happen?1")
 
-     if submit:
-          #commit_words(text1, text2, text3)
-          st.write("did this happen?2")
-          if st.session_state.i == "1":
-               Image1DB.put({"words": text1})
-               Image1DB.put({"words": "hello"})
-               Image1DB.put({"words": text2})
-               Image1DB.put({"words": text3})
-          if st.session_state.i == 2:
-               Image2DB.put({"words": text1})
-               Image2DB.put({"words": text2})
-               Image2DB.put({"words": text3})
-          if st.session_state.i == 3:
-               Image3DB.put({"words": text1})
-               Image3DB.put({"words": text2})
-               Image3DB.put({"words": text3})
+          if submit:
+               #commit_words(text1, text2, text3)
+               st.write("did this happen?2")
+               if st.session_state.i == "1":
+                    Image1DB.put({"words": text1})
+                    Image1DB.put({"words": "hello"})
+                    Image1DB.put({"words": text2})
+                    Image1DB.put({"words": text3})
+               if st.session_state.i == 2:
+                    Image2DB.put({"words": text1})
+                    Image2DB.put({"words": text2})
+                    Image2DB.put({"words": text3})
+               if st.session_state.i == 3:
+                    Image3DB.put({"words": text1})
+                    Image3DB.put({"words": text2})
+                    Image3DB.put({"words": text3})
      st.write("did this happen?3")
 else:
      st.write("Thank you!")
