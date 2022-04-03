@@ -67,9 +67,9 @@ if len(st.session_state.images_left) > 0:
      text3 = ""
      
      with st.form(key='wordForm'+str(st.session_state.i)):
-          text1 = st.text_input(label='', key=st.session_state.i+10)
-          text2 = st.text_input(label='', key=st.session_state.i+20)
-          text3 = st.text_input(label='', key=st.session_state.i+30)
+          text1 = st.text_input(label='', key=st.session_state.i+10, type="default")
+          text2 = st.text_input(label='', key=st.session_state.i+20, type="default")
+          text3 = st.text_input(label='', key=st.session_state.i+30, type="default")
 
           submit = st.form_submit_button('Submit')
 
