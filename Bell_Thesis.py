@@ -44,6 +44,7 @@ if 'submitted' not in st.session_state:
 # set selected image to the image container
 def set_image():
      if len(st.session_state.images_left) > 0:
+          st.session_state.i = random.choice(st.session_state.images_left)
           image = Image.open('image' + str(st.session_state.i) + '.jpg')
           with image_container.container():
                st.image(image, width=360, use_column_width='auto')
