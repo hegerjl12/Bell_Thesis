@@ -82,6 +82,7 @@ if len(st.session_state.images_left) > 0:
      
      if submit:
           words_split = three_words.split()
+          st.write(three_words)
           commit_words(words_split[0], words_split[1], words_split[2])
           input_container.empty()
 else:
