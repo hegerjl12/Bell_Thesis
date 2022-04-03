@@ -55,7 +55,7 @@ with st.spinner("Connecting to database..."):
           Image4DB = deta.Base("image4db")
           Image5DB = deta.Base("image5db")
 
-if st.session_state.text1 != "":
+if st.session_state.text1 == "":
      st.stop()
      if st.session_state.i == 1:
                     st.stop()
