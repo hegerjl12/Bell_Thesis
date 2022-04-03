@@ -76,7 +76,7 @@ if len(st.session_state.images_left) > 0:
      set_image() 
      
      with st.form(key='wordForm'+str(st.session_state.i), clear_on_submit=False):
-          text1 = str(st.text_input(label='', key=1))
+          text1 = st.text_input(label='', key=1)
           text2 = st.text_input(label='', key=2)
           text3 = st.text_input(label='', key=3)
 
@@ -84,7 +84,7 @@ if len(st.session_state.images_left) > 0:
 
           st.write("did this happen?1")
 
-          if submit:
+          if wordForm.submit:
                st.write("did this happen?2")
                if st.session_state.i == 1:
                     Image1DB.put({"words": st.session_state.text1})
