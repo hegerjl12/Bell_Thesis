@@ -74,31 +74,12 @@ if len(st.session_state.images_left) > 0:
 
      st.write("Enter 3 words you the image makes you feel: ")
      set_image() 
-     
+     text1 = st.text_input(label='', key=1)
+     text2 = st.text_input(label='', key=2)
+     text3 = st.text_input(label='', key=3)
      with st.form(key='wordForm'+str(st.session_state.i), clear_on_submit=False):
-          text1 = st.text_input(label='', key=1)
-          text2 = st.text_input(label='', key=2)
-          text3 = st.text_input(label='', key=3)
-
+          
           submit = st.form_submit_button('Submit', on_click=commit_words, args=(text1, text2, text3))
 
-          st.write("did this happen?1")
-
-          if submit:
-               st.write("did this happen?2")
-               if st.session_state.i == 1:
-                    Image1DB.put({"words": st.session_state.text1})
-                    Image1DB.put({"words": "THIS"})
-                    Image1DB.put({"words": st.session_state.text2})
-                    Image1DB.put({"words": st.session_state.text3})
-               if st.session_state.i == 2:
-                    Image2DB.put({"words": st.session_state.text1})
-                    Image2DB.put({"words": st.session_state.text2})
-                    Image2DB.put({"words": st.session_state.text3})
-               if st.session_state.i == 3:
-                    Image3DB.put({"words": st.session_state.text1})
-                    Image3DB.put({"words": st.session_state.text2})
-                    Image3DB.put({"words": st.session_state.text3})
-     st.write("did this happen?3")
 else:
      st.write("Thank you!")
