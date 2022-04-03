@@ -16,6 +16,7 @@ st.title("Selina's Thesis")
 
 # create image container and text container
 image_container = st.empty()
+input_container = st.empty()
 
 # create state variables 
 if 'images_left' not in st.session_state:
@@ -72,13 +73,15 @@ with st.spinner("Connecting to database..."):
 # loop to print images and collect input
 if len(st.session_state.images_left) > 0:
 
-     st.write("Enter 3 words you the image makes you feel: ")
+     st.write("Enter 3 words the image makes you feel: ")
      set_image() 
-     text1 = st.text_input(label='', key=1)
-     text2 = st.text_input(label='', key=2)
-     text3 = st.text_input(label='', key=3)
+
      with st.form(key='wordForm'+str(st.session_state.i), clear_on_submit=False):
           
+          text1 = st.text_input(label='', key=1)
+          text2 = st.text_input(label='', key=2)
+          text3 = st.text_input(label='', key=3)
+
           submit = st.form_submit_button('Submit', on_click=commit_words, args=(text1, text2, text3))
 
 else:
