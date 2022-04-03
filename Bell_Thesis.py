@@ -92,8 +92,13 @@ with st.spinner("Connecting to database..."):
           Image4DB = deta.Base("image4db")
           Image5DB = deta.Base("image5db")
 
+if st.session_state.submitted:
+     if len(st.session_state.images_left) > 1:
+          commit_words(st.session_state.text1, st.session_state.text2, st.session_state.text3)
+     else:
+          commit_wordsFinal(st.session_state.text1, st.session_state.text2, st.session_state.text3)
 # loop to print images and collect input
-if len(st.session_state.images_left) >= 0:
+if len(st.session_state.images_left) > 0:
 
      st.write("Enter 3 words the image makes you feel: ")
      set_image() 
@@ -108,12 +113,8 @@ if len(st.session_state.images_left) >= 0:
           
           st.session_state.submitted = st.form_submit_button('Submit')
 
-     if st.session_state.submitted:
-          commit_words(st.session_state.text1, st.session_state.text2, st.session_state.text3)
+    
 
-     if len(st.session_state.images_left) == 0:
-          st.session_state.i = -1
-          st.experimental_rerun()  
 else:
-    # commit_wordsFinal(st.session_state.text1, st.session_state.text2, st.session_state.text3)
+     #commit_wordsFinal(st.session_state.text1, st.session_state.text2, st.session_state.text3)
      st.write("Thank you!")
