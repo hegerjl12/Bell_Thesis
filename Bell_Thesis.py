@@ -88,10 +88,10 @@ if len(st.session_state.images_left) > 0:
           text2 = st.text_input(label="",key=2)
           text3 = st.text_input(label="",key=3)
           
-          submitted = st.form_submit_button('Submit', on_click=commit_words, args=(text1, text2, text3, st.session_state.i))
+          submitted = st.form_submit_button('Submit')
 
- #    if submitted:
-  #        commit_words(text1, text2, text3)
+     if submitted:
+          commit_words(text1, text2, text3, st.session_state.i)
          
 else:
      st.write("Thank you!")
