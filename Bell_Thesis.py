@@ -49,7 +49,6 @@ def set_image():
           with image_container.container():
                st.image(image, width=360, use_column_width='auto')
                st.write("Enter 3 words the image makes you feel: ")
-               st.write(st.session_state.i)
 
           # remove last image
                st.session_state.last_image.append(st.session_state.i)
