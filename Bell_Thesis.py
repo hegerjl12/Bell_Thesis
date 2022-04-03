@@ -97,6 +97,5 @@ if len(st.session_state.images_left) > 0:
           commit_words(st.session_state.text1, st.session_state.text2, st.session_state.text3)
          
 else:
-     if st.session_state.submitted:
-          commit_words(st.session_state.text1, st.session_state.text2, st.session_state.text3)
+     commit_words(st.session_state.text1, st.session_state.text2, st.session_state.text3)
      st.write("Thank you!")
