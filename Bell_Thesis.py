@@ -98,7 +98,7 @@ if len(st.session_state.images_left) > 0:
           if st.form_submit_button('Submit'):
                #commit_words(text1, text2, text3)
                st.write("did this happen?2")
-               if st.session_state.i == "1":
+               if st.session_state.i == 1:
                     Image1DB.put({"words": text1})
                     Image1DB.put({"words": "hello"})
                     Image1DB.put({"words": text2})
