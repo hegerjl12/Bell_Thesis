@@ -41,6 +41,7 @@ if 'last_image' not in st.session_state:
 # set selected image to the image container
 def set_image():
      if len(st.session_state.images_left) > 0:
+          st.session_state.last_image = st.session_state.i
           st.session_state.i = random.choice(st.session_state.images_left)
           image = Image.open('image' + str(st.session_state.i) + '.jpg')
           with image_container.container():
@@ -51,15 +52,15 @@ def set_image():
 
 def commit_words(text1, text2, text3):
 
-     if st.session_state.i == 1:
+     if st.session_state.last_image == 1:
           Image1DB.put({"words": text1})
           Image1DB.put({"words": text2})
           Image1DB.put({"words": text3})
-     if st.session_state.i == 2:
+     if st.session_state.last_image == 2:
           Image2DB.put({"words": text1})
           Image2DB.put({"words": text2})
           Image2DB.put({"words": text3})
-     if st.session_state.i == 3:
+     if st.session_state.last_image == 3:
           Image3DB.put({"words": text1})
           Image3DB.put({"words": text2})
           Image3DB.put({"words": text3})
