@@ -46,21 +46,20 @@ def set_image():
           # remove last image
                st.session_state.images_left.remove(st.session_state.i)
 
-def commit_words(three_words):
+def commit_words(text1, text2, text3):
 
-     words_split = three_words.split()
      if st.session_state.i == 1:
-          Image1DB.put({"words": words[0]})
-          Image1DB.put({"words": words[1]})
-          Image1DB.put({"words": words[2]})
+          Image1DB.put({"words": text1})
+          Image1DB.put({"words": text2})
+          Image1DB.put({"words": text3})
      if st.session_state.i == 2:
-          Image2DB.put({"words": words[0]})
-          Image2DB.put({"words": words[1]})
-          Image2DB.put({"words": words[2]})
+          Image2DB.put({"words": text1})
+          Image2DB.put({"words": text2})
+          Image2DB.put({"words": text3})
      if st.session_state.i == 3:
-          Image3DB.put({"words": words[0]})
-          Image3DB.put({"words": words[1]})
-          Image3DB.put({"words": words[2]})
+          Image3DB.put({"words": text1})
+          Image3DB.put({"words": text2})
+          Image3DB.put({"words": text3})
 
      
 with st.spinner("Connecting to database..."):
@@ -77,9 +76,15 @@ if len(st.session_state.images_left) > 0:
      st.write("Enter 3 words the image makes you feel: ")
      set_image() 
 
-     three_words = input_container.text_input(label='', key=st.session_state.i)
+     with st.form('entries'+str(st.session_state.i)):
+          text1 = st.text_input(key=1)
+          text2 = st.text_input(key=2)
+          text3 = st.text_input(key=3)
+          
+          submitted = st.form_submit_button('Submit')
 
-     submit = st.button('Submit', on_click=commit_words, args=(three_words))
-     
+          if submitted:
+               commit_words(text1, text2, text3)
+         
 else:
      st.write("Thank you!")
