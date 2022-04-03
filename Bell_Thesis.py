@@ -37,6 +37,9 @@ if 'text2' not in st.session_state:
 if 'text3' not in st.session_state:
      st.session_state.text3 = ""
 
+if 'submitted' not in st.session_state:
+     st.session_state.submitted = False
+
 
 # set selected image to the image container
 def set_image():
@@ -88,12 +91,12 @@ if len(st.session_state.images_left) > 0:
           st.session_state.text2 = st.text_input(label="",key=2)
           st.session_state.text3 = st.text_input(label="",key=3)
           
-          submitted = st.form_submit_button('Submit')
+          st.session_state.submitted = st.form_submit_button('Submit')
 
-     if submitted:
+     if st.session_state.submitted:
           commit_words(st.session_state.text1, st.session_state.text2, st.session_state.text3)
          
 else:
-     if submitted:
+     if st.session_state.submitted:
           commit_words(st.session_state.text1, st.session_state.text2, st.session_state.text3)
      st.write("Thank you!")
