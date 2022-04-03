@@ -28,14 +28,14 @@ if 'i' not in st.session_state:
 if 'last_image' not in st.session_state:
      st.session_state.last_image = []
 
-#if 'text1' not in st.session_state:
-  #   st.session_state.text1 = ""
+if 'text1' not in st.session_state:
+     st.session_state.text1 = ""
 
-#if 'text2' not in st.session_state:
- #    st.session_state.text2 = ""
+if 'text2' not in st.session_state:
+     st.session_state.text2 = ""
 
-#if 'text3' not in st.session_state:
- #    st.session_state.text3 = ""
+if 'text3' not in st.session_state:
+     st.session_state.text3 = ""
 
 
 # set selected image to the image container
@@ -84,14 +84,16 @@ if len(st.session_state.images_left) > 0:
    #  commit_words(text, text, text, st.session_state.i)
 
      with st.form('entries', clear_on_submit=True):
-          text1 = st.text_input(label="",key=1)
-          text2 = st.text_input(label="",key=2)
-          text3 = st.text_input(label="",key=3)
+          st.session_state.text1 = st.text_input(label="",key=1)
+          st.session_state.text2 = st.text_input(label="",key=2)
+          st.session_state.text3 = st.text_input(label="",key=3)
           
           submitted = st.form_submit_button('Submit')
 
      if submitted:
-          commit_words(text1, text2, text3)
+          commit_words(st.session_state.text1, st.session_state.text2, st.session_state.text3)
          
 else:
+     if submitted:
+          commit_words(st.session_state.text1, st.session_state.text2, st.session_state.text3)
      st.write("Thank you!")
