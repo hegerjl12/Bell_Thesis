@@ -55,7 +55,7 @@ with st.spinner("Connecting to database..."):
           Image4DB = deta.Base("image4db")
           Image5DB = deta.Base("image5db")
 
-if st.session_state.text1 != ""
+if st.session_state.text1 != "":
      if st.session_state.i == 1:
                     Image1DB.put({"words": text1})
      if st.session_state.i == 2:
@@ -63,7 +63,7 @@ if st.session_state.text1 != ""
      if st.session_state.i == 3:
                     Image3DB.put({"words": text1})
 
-if st.session_state.text2 != ""
+if st.session_state.text2 != "":
      if st.session_state.i == 1:
                     Image1DB.put({"words": text2})
      if st.session_state.i == 2:
@@ -71,7 +71,7 @@ if st.session_state.text2 != ""
      if st.session_state.i == 3:
                     Image3DB.put({"words": text2})
 
-if st.session_state.text3 != ""
+if st.session_state.text3 != "":
      if st.session_state.i == 3:
                     Image1DB.put({"words": text3})
      if st.session_state.i == 2:
