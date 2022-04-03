@@ -77,9 +77,9 @@ if len(st.session_state.images_left) > 0:
      set_image() 
 
      with st.form('entries'+str(st.session_state.i)):
-          text1 = st.text_input(key=1)
-          text2 = st.text_input(key=2)
-          text3 = st.text_input(key=3)
+          text1 = st.text_input(label="",key=1)
+          text2 = st.text_input(label="",key=2)
+          text3 = st.text_input(label="",key=3)
           
           submitted = st.form_submit_button('Submit')
 
