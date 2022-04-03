@@ -122,4 +122,3 @@ if st.session_state.submitted:
           commit_wordsFinal(st.session_state.text1, st.session_state.text2, st.session_state.text3)
           input_container.empty()
           st.write("Thank you!")
-#else:     
