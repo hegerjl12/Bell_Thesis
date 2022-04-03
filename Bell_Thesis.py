@@ -116,7 +116,7 @@ with st.form('entries', clear_on_submit=True):
      st.session_state.submitted = st.form_submit_button('Submit')
 
 if st.session_state.submitted:
-     if len(st.session_state.count) < 4:
+     if st.session_state.count < 4:
           commit_words(st.session_state.text1, st.session_state.text2, st.session_state.text3)
      else:
           commit_wordsFinal(st.session_state.text1, st.session_state.text2, st.session_state.text3)
