@@ -48,9 +48,11 @@ def set_image():
           # remove last image
                st.session_state.images_left.remove(st.session_state.i)
 
-with open('nameDB.csv', 'a', newline='') as f:
-     writer = csv.writer(f)
-     writer.writerow(["Image1", "Image2", "Image3", "Image4", "Image5"])
+f = open('nameDB.csv', 'w')
+writer = csv.writer(f)
+writer.writerow(["Image1", "Image2", "Image3", "Image4", "Image5"])
+f.close()
+
      
 #with st.spinner("Connecting to database..."):
    #       deta = Deta(st.secrets["deta_key"])
