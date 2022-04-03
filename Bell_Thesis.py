@@ -109,7 +109,7 @@ if len(st.session_state.images_left) > 0:
           st.session_state.text2 = st.text_input(label='', key=st.session_state.i+20, type="default")
           st.session_state.text3 = st.text_input(label='', key=st.session_state.i+30, type="default")
 
-          submit = st.form_submit_button('Submit', on_click=commit_words, args=(st.session_state.text1, st.session_state.text2, st.session_state.text3))
+          submit = st.form_submit_button('Submit', on_click=commit_words)
 
           st.write("did this happen?1")
 
