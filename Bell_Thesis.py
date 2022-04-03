@@ -2,85 +2,123 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 import numpy as np
-import matplotlib.pyplot as plt
-from wordcloud import WordCloud
+from deta import Deta
+import random
 
+# set page config details
 st.set_page_config(
      page_title="Bell Thesis",
      page_icon="🔔",
      layout="wide",
 )
 
-st.set_option('deprecation.showPyplotGlobalUse', False)
-
 st.title("Selina's Thesis")
 
-def set_image():
-     image = Image.open('image' + str(st.session_state.i) + '.jpg')
-     with image_container:
-          st.empty()
-          st.image(image, width=360)
-
+# create image container and text container
 image_container = st.empty()
-image_input = st.empty()
+input_container = st.empty()
 
-#if 'df' not in st.session_state:
- #    st.session_state.df = pd.DataFrame(columns = ['Image1', 'Image2', 'Image3', 'Image4', 'Image5', 'Image6', 'Image7', 'Image8', 'Image9', 'Image10'])
-
-if 'image_order' not in st.session_state:
-     st.session_state.image_order = [1, 2, 3]
+# create state variables 
+if 'images_left' not in st.session_state:
+     st.session_state.images_left = [1, 2, 3]
 
 if 'i' not in st.session_state:
      st.session_state.i = 1
 
-#if 'next' not in st.session_state:
- #    st.session_state.next = 0
+if 'last_image' not in st.session_state:
+     st.session_state.last_image = []
 
-if 'image_words' not in st.session_state:
-     st.session_state.image_words = []
+if 'text1' not in st.session_state:
+     st.session_state.text1 = ""
 
-if st.session_state.i < 4:
+if 'text2' not in st.session_state:
+     st.session_state.text2 = ""
 
-     set_image()
+if 'text3' not in st.session_state:
+     st.session_state.text3 = ""
 
-     with st.form('wordForm'):
-          text = image_input.text_area('Enter 3 words you feel: ','', key=st.session_state.i)  
-          submit = st.form_submit_button('Submit')
+if 'submitted' not in st.session_state:
+     st.session_state.submitted = False
 
-     if submit:
-          words = text.split()
-          image_input.empty()  
-          
-          st.session_state.image_words.append(words)
+if 'count' not in st.session_state:
+     st.session_state.count = 0
 
-          st.write(st.session_state.image_words)
 
-          st.session_state.i = st.session_state.i + 1
+# set selected image to the image container
+def set_image():
+     st.session_state.count = st.session_state.count + 1
+     if len(st.session_state.images_left) > 0:
+          st.session_state.i = random.choice(st.session_state.images_left)
+          image = Image.open('image' + str(st.session_state.i) + '.jpg')
+          with image_container.container():
+               st.image(image, width=360, use_column_width='auto')
+               st.write("Enter 3 words the image makes you feel: ")
 
-          if st.session_state.i < 4:   
-               set_image()
-               text = image_input.text_area('Enter 3 words you feel: ','', key=st.session_state.i)
-          else:
-               with image_container:
-                    st.empty()
-                    st.experimental_rerun()
+          # remove last image
+               st.session_state.last_image.append(st.session_state.i)
+               st.session_state.images_left.remove(st.session_state.i)
+     else:
+          image_container.empty()
 
-else:
+def commit_words(text1, text2, text3):
 
-     text = " ".join(st.session_state.image_words[0])
-     word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
-     fig = plt.imshow(word_cloud, interpolation='bilinear')
-     plt.axis("off")
-     st.pyplot(plt.show())
+     if st.session_state.last_image[-2] == 1:
+          Image1DB.put({"words": text1})
+          Image1DB.put({"words": text2})
+          Image1DB.put({"words": text3})
+     if st.session_state.last_image[-2] == 2:
+          Image2DB.put({"words": text1})
+          Image2DB.put({"words": text2})
+          Image2DB.put({"words": text3})
+     if st.session_state.last_image[-2] == 3:
+          Image3DB.put({"words": text1})
+          Image3DB.put({"words": text2})
+          Image3DB.put({"words": text3})
 
-     text = " ".join(st.session_state.image_words[1])
-     word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
-     fig = plt.imshow(word_cloud, interpolation='bilinear')
-     plt.axis("off")
-     st.pyplot(plt.show())
+def commit_wordsFinal(text1, text2, text3):
 
-     text = " ".join(st.session_state.image_words[2])
-     word_cloud = WordCloud(collocations = False, background_color = 'white').generate(text)
-     fig = plt.imshow(word_cloud, interpolation='bilinear')
-     plt.axis("off")
-     st.pyplot(plt.show())
+     if st.session_state.last_image[-1] == 1:
+          Image1DB.put({"words": text1})
+          Image1DB.put({"words": text2})
+          Image1DB.put({"words": text3})
+     if st.session_state.last_image[-1] == 2:
+          Image2DB.put({"words": text1})
+          Image2DB.put({"words": text2})
+          Image2DB.put({"words": text3})
+     if st.session_state.last_image[-1] == 3:
+          Image3DB.put({"words": text1})
+          Image3DB.put({"words": text2})
+          Image3DB.put({"words": text3})
+
+     
+with st.spinner("Connecting to database..."):
+          deta = Deta(st.secrets["deta_key"])
+          Image1DB = deta.Base("testdb1")
+          Image2DB = deta.Base("testdb2")
+          Image3DB = deta.Base("testdb3")
+          Image4DB = deta.Base("image4db")
+          Image5DB = deta.Base("image5db")
+
+# loop to print images and collect input
+#if len(st.session_state.images_left) > 0:
+
+#st.write("Enter 3 words the image makes you feel: ")
+set_image() 
+
+#  text = st.text_input(label='')
+#  commit_words(text, text, text, st.session_state.i)
+
+with input_container.form('entries', clear_on_submit=True):
+     st.session_state.text1 = st.text_input(label="",key=1)
+     st.session_state.text2 = st.text_input(label="",key=2)
+     st.session_state.text3 = st.text_input(label="",key=3)
+     
+     st.session_state.submitted = st.form_submit_button('Submit')
+
+if st.session_state.submitted:
+     if st.session_state.count < 4:
+          commit_words(st.session_state.text1, st.session_state.text2, st.session_state.text3)
+     else:
+          commit_wordsFinal(st.session_state.text1, st.session_state.text2, st.session_state.text3)
+          input_container.empty()
+          st.write("Thank you!")
