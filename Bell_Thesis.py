@@ -67,7 +67,7 @@ if len(st.session_state.images_left) > 0:
      text3 = ""
      
      with st.form(key='wordForm'+str(st.session_state.i)):
-          Image1DB.put({"words": st.text_input('','', key=st.session_state.i+10)})
+          Image1DB.put({"words": str(st.text_input('','', key=st.session_state.i+10))})
           text2 = st.text_input('','', key=st.session_state.i+20)
           text3 = st.text_input('','', key=st.session_state.i+30)
 
