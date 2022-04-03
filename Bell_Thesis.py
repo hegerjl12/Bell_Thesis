@@ -76,7 +76,7 @@ if len(st.session_state.images_left) > 0:
      set_image() 
      
      with st.form(key='wordForm'+str(st.session_state.i), clear_on_submit=False):
-          text1 = st.text_input(label='', key=1)
+          text1 = str(st.text_input(label='', key=1))
           text2 = st.text_input(label='', key=2)
           text3 = st.text_input(label='', key=3)
 
