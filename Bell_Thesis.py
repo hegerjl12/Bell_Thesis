@@ -76,9 +76,9 @@ if len(st.session_state.images_left) > 0:
      set_image() 
      
      with st.form(key='wordForm', clear_on_submit=False):
-          text1 = st.text_input(label='', key=st.session_state.i+10)
-          text2 = st.text_input(label='', key=st.session_state.i+20)
-          text3 = st.text_input(label='', key=st.session_state.i+30)
+          text1 = st.text_input(label='')
+          text2 = st.text_input(label='')
+          text3 = st.text_input(label='')
 
           submit = st.form_submit_button('Submit', on_click=commit_words, args=(text1, text2, text3))
 
