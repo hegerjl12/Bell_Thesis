@@ -89,6 +89,7 @@ if len(st.session_state.images_left) > 0:
 
      if submit:
           st.write("did this happen?2")
+          st.stop()
           if st.session_state.i == 1:
                Image1DB.put({"words": text1})
                Image1DB.put({"words": text2})
