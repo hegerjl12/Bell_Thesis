@@ -56,7 +56,6 @@ with st.spinner("Connecting to database..."):
           Image4DB = deta.Base("image4db")
           Image5DB = deta.Base("image5db")
 
-Image1DB.put({"words": "test"})
 
 # loop to print images and collect input
 if len(st.session_state.images_left) > 0:
@@ -68,7 +67,7 @@ if len(st.session_state.images_left) > 0:
      text3 = ""
      
      with st.form(key='wordForm'+str(st.session_state.i)):
-          text1 = st.text_input('','', key=st.session_state.i+10)
+          Image1DB.put({"words": st.text_input('','', key=st.session_state.i+10)})
           text2 = st.text_input('','', key=st.session_state.i+20)
           text3 = st.text_input('','', key=st.session_state.i+30)
 
