@@ -49,7 +49,7 @@ def set_image():
 def commit_words(text1, text2, text3):
      if st.session_state.i == 1:
           Image1DB.put({"words": text1})
-          Image1DB.put({"words": "THAT"})
+          Image1DB.put({"words": "now?"})
           Image1DB.put({"words": text2})
           Image1DB.put({"words": text3})
      if st.session_state.i == 2:
