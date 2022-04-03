@@ -108,7 +108,7 @@ set_image()
 #  text = st.text_input(label='')
 #  commit_words(text, text, text, st.session_state.i)
 
-with st.form('entries', clear_on_submit=True):
+with input_container.form('entries', clear_on_submit=True):
      st.session_state.text1 = st.text_input(label="",key=1)
      st.session_state.text2 = st.text_input(label="",key=2)
      st.session_state.text3 = st.text_input(label="",key=3)
@@ -120,5 +120,6 @@ if st.session_state.submitted:
           commit_words(st.session_state.text1, st.session_state.text2, st.session_state.text3)
      else:
           commit_wordsFinal(st.session_state.text1, st.session_state.text2, st.session_state.text3)
+          input_container.empty()
           st.write("Thank you!")
 #else:     
