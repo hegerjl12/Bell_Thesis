@@ -87,7 +87,7 @@ if len(st.session_state.images_left) > 0:
                Image3DB.put({"words": text2})
                Image3DB.put({"words": text3})
 
-          if submit:
+          if not submit:
                st.write("did this happen?2")
                st.stop()
                if st.session_state.i == 1:
