@@ -5,7 +5,6 @@ import numpy as np
 from deta import Deta
 import random
 import time
-import csv
 
 # set page config details
 st.set_page_config(
@@ -48,19 +47,16 @@ def set_image():
           # remove last image
                st.session_state.images_left.remove(st.session_state.i)
 
-f = open('nameDB.csv', 'w')
-writer = csv.writer(f)
-writer.writerow(["Image1", "Image2", "Image3", "Image4", "Image5"])
-f.close()
-
      
-#with st.spinner("Connecting to database..."):
-   #       deta = Deta(st.secrets["deta_key"])
-   #       Image1DB = deta.Base("testdb1")
-    #      Image2DB = deta.Base("testdb2")
-    #      Image3DB = deta.Base("testdb3")
-    #      Image4DB = deta.Base("image4db")
-    #      Image5DB = deta.Base("image5db")
+with st.spinner("Connecting to database..."):
+          deta = Deta(st.secrets["deta_key"])
+          Image1DB = deta.Base("testdb1")
+          Image2DB = deta.Base("testdb2")
+          Image3DB = deta.Base("testdb3")
+          Image4DB = deta.Base("image4db")
+          Image5DB = deta.Base("image5db")
+
+Image1DB.put({"words": "test"})
 
 # loop to print images and collect input
 if len(st.session_state.images_left) > 0:
@@ -81,20 +77,17 @@ if len(st.session_state.images_left) > 0:
      if submit:
 
           if st.session_state.i == 1:
-               st.write(text1)
-             #  Image1DB.put({"words": text1})
-              # Image1DB.put({"words": text2})
-              # Image1DB.put({"words": text3})
+               Image1DB.put({"words": text1})
+               Image1DB.put({"words": text2})
+               Image1DB.put({"words": text3})
           if st.session_state.i == 2:
-               st.write(text1)
-            #   Image2DB.put({"words": text1})
-             #  Image2DB.put({"words": text2})
-             #  Image2DB.put({"words": text3})
+               Image2DB.put({"words": text1})
+               Image2DB.put({"words": text2})
+               Image2DB.put({"words": text3})
           if st.session_state.i == 3:
-               st.write(text1)
-             #  Image3DB.put({"words": text1})
-             #  Image3DB.put({"words": text2})
-            #   Image3DB.put({"words": text3})
+               Image3DB.put({"words": text1})
+               Image3DB.put({"words": text2})
+               Image3DB.put({"words": text3})
 
 else:
      st.write("Thank you!")
