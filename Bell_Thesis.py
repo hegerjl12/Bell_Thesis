@@ -22,7 +22,7 @@ def set_image():
           st.image(image, width=360)
 
 image_container = st.empty()
-image_input = st.empty()
+#image_input = st.empty()
 
 #if 'df' not in st.session_state:
  #    st.session_state.df = pd.DataFrame(columns = ['Image1', 'Image2', 'Image3', 'Image4', 'Image5', 'Image6', 'Image7', 'Image8', 'Image9', 'Image10'])
@@ -49,7 +49,7 @@ if st.session_state.i < 4:
 
      if submit:
           words = text.split()
-          image_input.empty()  
+          #image_input.empty()  
           
           st.session_state.image_words.append(words)
 
