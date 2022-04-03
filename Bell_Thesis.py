@@ -73,6 +73,7 @@ if len(st.session_state.images_left) > 0:
 
           submit = st.form_submit_button('Submit')
 
+          st.write("did this happen?1")
           if st.session_state.i == 1:
                Image1DB.put({"words": text1})
                Image1DB.put({"words": text2})
@@ -87,7 +88,7 @@ if len(st.session_state.images_left) > 0:
                Image3DB.put({"words": text3})
 
      if submit:
-
+          st.write("did this happen?2")
           if st.session_state.i == 1:
                Image1DB.put({"words": text1})
                Image1DB.put({"words": text2})
@@ -100,6 +101,6 @@ if len(st.session_state.images_left) > 0:
                Image3DB.put({"words": text1})
                Image3DB.put({"words": text2})
                Image3DB.put({"words": text3})
-
+     st.write("did this happen?3")
 else:
      st.write("Thank you!")
