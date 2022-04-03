@@ -83,8 +83,8 @@ if len(st.session_state.images_left) > 0:
           
           submitted = st.form_submit_button('Submit')
 
-          if submitted:
-               commit_words(text1, text2, text3)
+     if submitted:
+          commit_words(text1, text2, text3)
          
 else:
      st.write("Thank you!")
