@@ -59,7 +59,7 @@ if st.session_state.i < 4:
 
           if st.session_state.i < 4:   
                set_image()
-               text = image_input.text_area('Enter 3 words you feel: ','', key=st.session_state.i)
+               text = st.text_area('Enter 3 words you feel: ','', key=st.session_state.i)
           else:
                with image_container:
                     st.empty()
