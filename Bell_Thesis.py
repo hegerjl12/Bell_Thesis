@@ -44,12 +44,12 @@ if st.session_state.i < 4:
      set_image()
 
      with st.form('wordForm'):
-          text = st.text_area('Enter 3 words you feel: ','', key=st.session_state.i)  
+          text = image_input.text_area('Enter 3 words you feel: ','', key=st.session_state.i)  
           submit = st.form_submit_button('Submit')
 
      if submit:
           words = text.split()
-          #image_input.empty()  
+          image_input.empty()  
           
           st.session_state.image_words.append(words)
 
@@ -59,7 +59,7 @@ if st.session_state.i < 4:
 
           if st.session_state.i < 4:   
                set_image()
-              # text = st.text_area('Enter 3 words you feel: ','', key=st.session_state.i)
+               text = image_input.text_area('Enter 3 words you feel: ','', key=st.session_state.i)
           else:
                with image_container:
                     st.empty()
