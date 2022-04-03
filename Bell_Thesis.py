@@ -45,20 +45,20 @@ def set_image():
           # remove last image
                st.session_state.images_left.remove(st.session_state.i)
 
-def commit_words():
+def commit_words(text1, text2, text3):
      if st.session_state.i == 1:
-          Image1DB.put({"words": st.session_state.text1})
+          Image1DB.put({"words": text1})
           Image1DB.put({"words": "THAT"})
-          Image1DB.put({"words": st.session_state.text2})
-          Image1DB.put({"words": st.session_state.text3})
+          Image1DB.put({"words": text2})
+          Image1DB.put({"words": stext3})
      if st.session_state.i == 2:
-          Image2DB.put({"words": st.session_state.text1})
-          Image2DB.put({"words": st.session_state.text2})
-          Image2DB.put({"words": st.session_state.text3})
+          Image2DB.put({"words": text1})
+          Image2DB.put({"words": text2})
+          Image2DB.put({"words": text3})
      if st.session_state.i == 3:
-          Image3DB.put({"words": st.session_state.text1})
-          Image3DB.put({"words": st.session_state.text2})
-          Image3DB.put({"words": st.session_state.text3})
+          Image3DB.put({"words": text1})
+          Image3DB.put({"words": text2})
+          Image3DB.put({"words": text3})
 
      
 with st.spinner("Connecting to database..."):
@@ -76,11 +76,11 @@ if len(st.session_state.images_left) > 0:
      set_image() 
      
      with st.form(key='wordForm', clear_on_submit=False):
-          st.session_state.text1 = st.text_input(label='', key=st.session_state.i+10)
-          st.session_state.text2 = st.text_input(label='', key=st.session_state.i+20)
-          st.session_state.text3 = st.text_input(label='', key=st.session_state.i+30)
+          text1 = st.text_input(label='', key=st.session_state.i+10)
+          text2 = st.text_input(label='', key=st.session_state.i+20)
+          text3 = st.text_input(label='', key=st.session_state.i+30)
 
-          submit = st.form_submit_button('Submit', on_click=commit_words)
+          submit = st.form_submit_button('Submit', on_click=commit_words, args=(text1, text2, text3))
 
           st.write("did this happen?1")
 
