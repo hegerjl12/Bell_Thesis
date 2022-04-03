@@ -105,9 +105,9 @@ if len(st.session_state.images_left) > 0:
      
      
      with st.form(key='wordForm'+str(st.session_state.i), clear_on_submit=False):
-          st.session_state.text1 = st.text_area(label='', key=st.session_state.i+10, type="default")
-          st.session_state.text2 = st.text_input(label='', key=st.session_state.i+20, type="default")
-          st.session_state.text3 = st.text_input(label='', key=st.session_state.i+30, type="default")
+          st.session_state.text1 = st.text_area(label='', key=st.session_state.i+10)
+          st.session_state.text2 = st.text_input(label='', key=st.session_state.i+20)
+          st.session_state.text3 = st.text_input(label='', key=st.session_state.i+30)
 
           submit = st.form_submit_button('Submit', on_click=commit_words)
 
