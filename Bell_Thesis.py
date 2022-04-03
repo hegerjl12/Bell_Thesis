@@ -57,27 +57,27 @@ with st.spinner("Connecting to database..."):
 
 if st.session_state.text1 != "":
      if st.session_state.i == 1:
-                    Image1DB.put({"words": text1})
+                    Image1DB.put({"words": st.session_state.text1})
      if st.session_state.i == 2:
-                    Image2DB.put({"words": text1})
+                    Image2DB.put({"words": st.session_state.text1})
      if st.session_state.i == 3:
-                    Image3DB.put({"words": text1})
+                    Image3DB.put({"words": st.session_state.text1})
 
 if st.session_state.text2 != "":
      if st.session_state.i == 1:
-                    Image1DB.put({"words": text2})
+                    Image1DB.put({"words": st.session_state.text2})
      if st.session_state.i == 2:
-                    Image2DB.put({"words": text2})
+                    Image2DB.put({"words": st.session_state.text2})
      if st.session_state.i == 3:
-                    Image3DB.put({"words": text2})
+                    Image3DB.put({"words": st.session_state.text2})
 
 if st.session_state.text3 != "":
      if st.session_state.i == 3:
-                    Image1DB.put({"words": text3})
+                    Image1DB.put({"words": st.session_state.text3})
      if st.session_state.i == 2:
-                    Image2DB.put({"words": text3})
+                    Image2DB.put({"words": st.session_state.text3})
      if st.session_state.i == 3:
-                    Image3DB.put({"words": text3})
+                    Image3DB.put({"words": st.session_state.text3})
 
 
 
