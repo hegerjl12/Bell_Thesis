@@ -45,6 +45,21 @@ def set_image():
           # remove last image
                st.session_state.images_left.remove(st.session_state.i)
 
+def commit_words():
+     if st.session_state.i == 1:
+          Image1DB.put({"words": st.session_state.text1})
+          Image1DB.put({"words": "hello"})
+          Image1DB.put({"words": st.session_state.text2})
+          Image1DB.put({"words": st.session_state.text3})
+     if st.session_state.i == 2:
+          Image2DB.put({"words": st.session_state.text1})
+          Image2DB.put({"words": st.session_state.text2})
+          Image2DB.put({"words": st.session_state.text3})
+     if st.session_state.i == 3:
+          Image3DB.put({"words": st.session_state.text1})
+          Image3DB.put({"words": st.session_state.text2})
+          Image3DB.put({"words": st.session_state.text3})
+
      
 with st.spinner("Connecting to database..."):
           deta = Deta(st.secrets["deta_key"])
