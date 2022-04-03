@@ -48,7 +48,7 @@ def set_image():
 def commit_words():
      if st.session_state.i == 1:
           Image1DB.put({"words": st.session_state.text1})
-          Image1DB.put({"words": "hello"})
+          Image1DB.put({"words": "THAT"})
           Image1DB.put({"words": st.session_state.text2})
           Image1DB.put({"words": st.session_state.text3})
      if st.session_state.i == 2:
@@ -88,7 +88,7 @@ if len(st.session_state.images_left) > 0:
                st.write("did this happen?2")
                if st.session_state.i == 1:
                     Image1DB.put({"words": st.session_state.text1})
-                    Image1DB.put({"words": "hello"})
+                    Image1DB.put({"words": "THIS"})
                     Image1DB.put({"words": st.session_state.text2})
                     Image1DB.put({"words": st.session_state.text3})
                if st.session_state.i == 2:
