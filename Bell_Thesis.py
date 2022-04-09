@@ -119,6 +119,6 @@ if st.session_state.submitted:
      if st.session_state.count < 4:
           commit_words(st.session_state.text1.lower(), st.session_state.text2.lower(), st.session_state.text3.lower())
      else:
-          commit_wordsFinal(st.session_state.text1, st.session_state.text2, st.session_state.text3)
+          commit_wordsFinal(st.session_state.text1.lower(), st.session_state.text2.lower(), st.session_state.text3.lower())
           input_container.empty()
           st.write("Thank you!")
