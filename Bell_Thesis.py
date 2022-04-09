@@ -117,7 +117,7 @@ with input_container.form('entries', clear_on_submit=True):
 
 if st.session_state.submitted:
      if st.session_state.count < 4:
-          commit_words(st.session_state.text1, st.session_state.text2, st.session_state.text3)
+          commit_words(st.session_state.text1.lower(), st.session_state.text2.lower(), st.session_state.text3.lower())
      else:
           commit_wordsFinal(st.session_state.text1, st.session_state.text2, st.session_state.text3)
           input_container.empty()
