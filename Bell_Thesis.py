@@ -77,6 +77,14 @@ def commit_words(text1, text2, text3):
           Image3DB.put({"words": text1})
           Image3DB.put({"words": text2})
           Image3DB.put({"words": text3})
+     if st.session_state.last_image[-2] == 4:
+          Image4DB.put({"words": text1})
+          Image4DB.put({"words": text2})
+          Image4DB.put({"words": text3})
+     if st.session_state.last_image[-2] == 5:
+          Image5DB.put({"words": text1})
+          Image5DB.put({"words": text2})
+          Image5DB.put({"words": text3})
 
 def commit_wordsFinal(text1, text2, text3):
 
@@ -92,6 +100,14 @@ def commit_wordsFinal(text1, text2, text3):
           Image3DB.put({"words": text1})
           Image3DB.put({"words": text2})
           Image3DB.put({"words": text3})
+     if st.session_state.last_image[-1] == 4:
+          Image4DB.put({"words": text1})
+          Image4DB.put({"words": text2})
+          Image4DB.put({"words": text3})
+     if st.session_state.last_image[-1] == 5:
+          Image5DB.put({"words": text1})
+          Image5DB.put({"words": text2})
+          Image5DB.put({"words": text3})
 
      
 with st.spinner("Connecting to database..."):
