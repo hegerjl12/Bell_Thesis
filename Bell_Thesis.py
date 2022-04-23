@@ -135,7 +135,7 @@ with input_container.form('entries', clear_on_submit=True):
      st.session_state.submitted = st.form_submit_button('Submit')
 
 if st.session_state.submitted:
-     if st.session_state.count < 7:
+     if st.session_state.count < 6:
           commit_words(st.session_state.text1.lower(), st.session_state.text2.lower(), st.session_state.text3.lower())
      else:
           commit_wordsFinal(st.session_state.text1.lower(), st.session_state.text2.lower(), st.session_state.text3.lower())
