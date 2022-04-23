@@ -12,10 +12,6 @@ st.set_page_config(
      layout="wide",
 )
 
-st.title("Clear your mind...")
-st.write("")
-st.write("")
-
 # create image container and text container
 image_container = st.empty()
 input_container = st.empty()
@@ -53,6 +49,9 @@ def set_image():
           st.session_state.i = random.choice(st.session_state.images_left)
           image = Image.open('image' + str(st.session_state.i) + '.jpg')
           with image_container.container():
+               st.title("Clear your mind...")
+               st.write("")
+               st.write("")
                st.image(image, width=360, use_column_width='auto')
                st.write("")
                st.write("")
@@ -125,5 +124,5 @@ if st.session_state.submitted:
      else:
           commit_wordsFinal(st.session_state.text1.lower(), st.session_state.text2.lower(), st.session_state.text3.lower())
           input_container.empty()
-          st.subheader("Thank you!  Check out the wordclouds to see impressions in real time.")
+          st.subheader("Thank you!  Check out the word clouds to see impressions in real time.")
           st.stop()
