@@ -7,12 +7,13 @@ import random
 
 # set page config details
 st.set_page_config(
-     page_title="Bell Thesis",
+     page_title="Lina's Thesis Experiment",
      page_icon="🔔",
      layout="wide",
 )
 
-st.title("Selina's Thesis")
+st.title("Clear your mind...")
+st.write("")
 
 # create image container and text container
 image_container = st.empty()
