@@ -54,7 +54,9 @@ def set_image():
           image = Image.open('image' + str(st.session_state.i) + '.jpg')
           with image_container.container():
                st.image(image, width=360, use_column_width='auto')
-               st.write("Enter the first three words that come to your mind: ")
+               st.write("")
+               st.write("")
+               st.subheader("Enter the first three words that come to your mind: ")
 
           # remove last image
                st.session_state.last_image.append(st.session_state.i)
