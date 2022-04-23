@@ -18,7 +18,7 @@ input_container = st.empty()
 
 # create state variables 
 if 'images_left' not in st.session_state:
-     st.session_state.images_left = [1, 2, 3]
+     st.session_state.images_left = [1, 2, 3, 4, 5]
 
 if 'i' not in st.session_state:
      st.session_state.i = 1
@@ -96,9 +96,9 @@ def commit_wordsFinal(text1, text2, text3):
      
 with st.spinner("Connecting to database..."):
           deta = Deta(st.secrets["deta_key"])
-          Image1DB = deta.Base("testdb1")
-          Image2DB = deta.Base("testdb2")
-          Image3DB = deta.Base("testdb3")
+          Image1DB = deta.Base("image1db")
+          Image2DB = deta.Base("image2db")
+          Image3DB = deta.Base("image3db")
           Image4DB = deta.Base("image4db")
           Image5DB = deta.Base("image5db")
 
