@@ -125,5 +125,5 @@ if st.session_state.submitted:
      else:
           commit_wordsFinal(st.session_state.text1.lower(), st.session_state.text2.lower(), st.session_state.text3.lower())
           input_container.empty()
-          st.write("Thank you!")
+          st.subheading("Thank you!  Check out the wordclouds to see impressions in real time.")
           st.stop()
