@@ -14,6 +14,7 @@ st.set_page_config(
 
 st.title("Clear your mind...")
 st.write("")
+st.write("")
 
 # create image container and text container
 image_container = st.empty()
