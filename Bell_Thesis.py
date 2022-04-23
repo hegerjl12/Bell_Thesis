@@ -113,9 +113,9 @@ set_image()
 #  commit_words(text, text, text, st.session_state.i)
 
 with input_container.form('entries', clear_on_submit=True):
-     st.session_state.text1 = st.text_input(label="1",key=1)
-     st.session_state.text2 = st.text_input(label="2",key=2)
-     st.session_state.text3 = st.text_input(label="3",key=3)
+     st.session_state.text1 = st.text_input(label="One:",key=1)
+     st.session_state.text2 = st.text_input(label="Two:",key=2)
+     st.session_state.text3 = st.text_input(label="Three:",key=3)
      
      st.session_state.submitted = st.form_submit_button('Submit')
 
